@@ -1,0 +1,6 @@
+framework module Pods_EasyTech {
+  umbrella header "Pods-EasyTech-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -6,12 +6,26 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseAuth
 
 @main
 struct EasyTechApp: App {
+    init(){
+        FirebaseApp.configure()
+        
+    }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if Auth.auth().currentUser != nil{
+                let per = UserModel().loadPermission()
+                
+            }
+            else{
+                ContentView()
+            }
         }
     }
+    
+    
 }

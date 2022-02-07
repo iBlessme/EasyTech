@@ -11,6 +11,16 @@
 		20BE13B927B1230B00B76A9C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BE13B827B1230B00B76A9C /* ContentView.swift */; };
 		20BE13BB27B1230E00B76A9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BE13BA27B1230E00B76A9C /* Assets.xcassets */; };
 		20BE13BE27B1230E00B76A9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BE13BD27B1230E00B76A9C /* Preview Assets.xcassets */; };
+		20BE13C627B1350800B76A9C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BE13C527B1350800B76A9C /* ImagePicker.swift */; };
+		20BE13C927B14A0600B76A9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20BE13C827B14A0600B76A9C /* GoogleService-Info.plist */; };
+		20BE13CB27B1581C00B76A9C /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BE13CA27B1581C00B76A9C /* Registration.swift */; };
+		20BE13CD27B1737E00B76A9C /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BE13CC27B1737D00B76A9C /* Auth.swift */; };
+		20C5756F27B181BC005BDF2B /* MainUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C5756E27B181BC005BDF2B /* MainUserView.swift */; };
+		20C5757427B182EF005BDF2B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C5757327B182EF005BDF2B /* User.swift */; };
+		20C5757627B183BF005BDF2B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C5757527B183BF005BDF2B /* UserModel.swift */; };
+		20C5757827B187D1005BDF2B /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C5757727B187D1005BDF2B /* Test.swift */; };
+		20C5757C27B18F19005BDF2B /* MainPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C5757B27B18F19005BDF2B /* MainPersonView.swift */; };
+		AB8C25610586FFE6CA422297 /* Pods_EasyTech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D7E2EA7C1169C1C396308E /* Pods_EasyTech.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +29,18 @@
 		20BE13B827B1230B00B76A9C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		20BE13BA27B1230E00B76A9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20BE13BD27B1230E00B76A9C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		20BE13C527B1350800B76A9C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		20BE13C827B14A0600B76A9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		20BE13CA27B1581C00B76A9C /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
+		20BE13CC27B1737D00B76A9C /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		20C5756E27B181BC005BDF2B /* MainUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserView.swift; sourceTree = "<group>"; };
+		20C5757327B182EF005BDF2B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		20C5757527B183BF005BDF2B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		20C5757727B187D1005BDF2B /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		20C5757B27B18F19005BDF2B /* MainPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPersonView.swift; sourceTree = "<group>"; };
+		AFF4206DEE2BE30176A88D5A /* Pods-EasyTech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyTech.release.xcconfig"; path = "Target Support Files/Pods-EasyTech/Pods-EasyTech.release.xcconfig"; sourceTree = "<group>"; };
+		B0D7E2EA7C1169C1C396308E /* Pods_EasyTech.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyTech.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6BCACF55326CBC349D5F09E /* Pods-EasyTech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyTech.debug.xcconfig"; path = "Target Support Files/Pods-EasyTech/Pods-EasyTech.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +48,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB8C25610586FFE6CA422297 /* Pods_EasyTech.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1480D11B061E548CCB52E224 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0D7E2EA7C1169C1C396308E /* Pods_EasyTech.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		20BE13AA27B1230B00B76A9C = {
 			isa = PBXGroup;
 			children = (
+				20BE13C827B14A0600B76A9C /* GoogleService-Info.plist */,
 				20BE13B527B1230B00B76A9C /* EasyTech */,
 				20BE13B427B1230B00B76A9C /* Products */,
+				F7B9BBC55A8B4340D00CA215 /* Pods */,
+				1480D11B061E548CCB52E224 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,8 +85,9 @@
 		20BE13B527B1230B00B76A9C /* EasyTech */ = {
 			isa = PBXGroup;
 			children = (
+				20C5757027B18290005BDF2B /* Data */,
+				20BE13C727B1352A00B76A9C /* Views */,
 				20BE13B627B1230B00B76A9C /* EasyTechApp.swift */,
-				20BE13B827B1230B00B76A9C /* ContentView.swift */,
 				20BE13BA27B1230E00B76A9C /* Assets.xcassets */,
 				20BE13BC27B1230E00B76A9C /* Preview Content */,
 			);
@@ -67,6 +102,70 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		20BE13C727B1352A00B76A9C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				20C5757A27B18F0A005BDF2B /* Person */,
+				20C5757927B18F01005BDF2B /* User */,
+				20BE13B827B1230B00B76A9C /* ContentView.swift */,
+				20C5757727B187D1005BDF2B /* Test.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		20C5757027B18290005BDF2B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				20C5757227B182AC005BDF2B /* Services */,
+				20C5757127B1829D005BDF2B /* Models */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		20C5757127B1829D005BDF2B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				20C5757327B182EF005BDF2B /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		20C5757227B182AC005BDF2B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				20BE13C527B1350800B76A9C /* ImagePicker.swift */,
+				20BE13CA27B1581C00B76A9C /* Registration.swift */,
+				20BE13CC27B1737D00B76A9C /* Auth.swift */,
+				20C5757527B183BF005BDF2B /* UserModel.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		20C5757927B18F01005BDF2B /* User */ = {
+			isa = PBXGroup;
+			children = (
+				20C5756E27B181BC005BDF2B /* MainUserView.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		20C5757A27B18F0A005BDF2B /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				20C5757B27B18F19005BDF2B /* MainPersonView.swift */,
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
+		F7B9BBC55A8B4340D00CA215 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F6BCACF55326CBC349D5F09E /* Pods-EasyTech.debug.xcconfig */,
+				AFF4206DEE2BE30176A88D5A /* Pods-EasyTech.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +173,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20BE13C127B1230E00B76A9C /* Build configuration list for PBXNativeTarget "EasyTech" */;
 			buildPhases = (
+				02C20AA499241147CEFE2E99 /* [CP] Check Pods Manifest.lock */,
 				20BE13AF27B1230B00B76A9C /* Sources */,
 				20BE13B027B1230B00B76A9C /* Frameworks */,
 				20BE13B127B1230B00B76A9C /* Resources */,
+				01C395D466B0936C0F914FA9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,18 +228,69 @@
 			files = (
 				20BE13BE27B1230E00B76A9C /* Preview Assets.xcassets in Resources */,
 				20BE13BB27B1230E00B76A9C /* Assets.xcassets in Resources */,
+				20BE13C927B14A0600B76A9C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01C395D466B0936C0F914FA9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyTech/Pods-EasyTech-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyTech/Pods-EasyTech-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyTech/Pods-EasyTech-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		02C20AA499241147CEFE2E99 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyTech-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		20BE13AF27B1230B00B76A9C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20C5756F27B181BC005BDF2B /* MainUserView.swift in Sources */,
+				20BE13CD27B1737E00B76A9C /* Auth.swift in Sources */,
+				20C5757827B187D1005BDF2B /* Test.swift in Sources */,
+				20C5757627B183BF005BDF2B /* UserModel.swift in Sources */,
+				20C5757C27B18F19005BDF2B /* MainPersonView.swift in Sources */,
+				20BE13CB27B1581C00B76A9C /* Registration.swift in Sources */,
+				20BE13C627B1350800B76A9C /* ImagePicker.swift in Sources */,
 				20BE13B927B1230B00B76A9C /* ContentView.swift in Sources */,
 				20BE13B727B1230B00B76A9C /* EasyTechApp.swift in Sources */,
+				20C5757427B182EF005BDF2B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +415,7 @@
 		};
 		20BE13C227B1230E00B76A9C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6BCACF55326CBC349D5F09E /* Pods-EasyTech.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -275,8 +428,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -286,12 +441,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		20BE13C327B1230E00B76A9C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFF4206DEE2BE30176A88D5A /* Pods-EasyTech.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -304,8 +460,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +473,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
