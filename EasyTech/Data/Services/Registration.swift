@@ -13,6 +13,8 @@ import FirebaseFirestore
 
 class Registration{
     
+    
+    
     func regUser(email: String, password: String, image: UIImage,  name: String, surname: String, numberPhone: String){
         Auth.auth().createUser(withEmail: "\(email)@mpt.ru", password: password){
             result, error in
@@ -66,6 +68,9 @@ class Registration{
                     return
                 }
                 print("Success")
+                
             }
     }
+    
+    
 }

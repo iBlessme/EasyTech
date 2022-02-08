@@ -9,20 +9,25 @@ import SwiftUI
 import FirebaseAuth
 
 struct MainUserView: View {
+    
+    @State var shouldShowLogOutOptions = false
+    @ObservedObject private var vm = UserModel()
+    
     var body: some View {
         VStack {
-            Text("User")
-            Button{
-                do{
-                            try Auth.auth().signOut()
-                        }catch{
-                            print("Ошибка при выходе")
-                        }
-            }label: {
-                Text("Выйти нахуй")
-            }
+            UserNavBar()
+//            Divider()
+            OrdersUserView()
+            
         }
+        
+        .overlay(
+            MessageOrderView()
+        , alignment: .bottom)
+        .navigationBarHidden(true)
+        .padding()
     }
+    
 }
 
 struct MainUserView_Previews: PreviewProvider {

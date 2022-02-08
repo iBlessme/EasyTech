@@ -8,14 +8,20 @@
 import SwiftUI
 import FirebaseAuth
 import FirebaseStorage
+import FirebaseFirestore
 
 struct ContentView: View {
     
     private func handleAction(){
         if isLoginMode{
-            Login().loginUser(email: emailText, password: passwordText)
+            if checkValidationAuth(){
+                self.loginUser()
+            }
+           
         }else{
-            Registration().regUser(email: emailText, password: passwordText, image: imageProfile!, name: nameProfile, surname: surnameProfile, numberPhone: numberPhone)
+            if checkValidationReg(){
+                self.regUser()
+            }
         }
     }
     
@@ -27,15 +33,24 @@ struct ContentView: View {
     @State var numberPhone = ""
     @State var showImagePicker = false
     @State var imageProfile: UIImage?
+    @State var showActonSheet = false
+    @State var sourceType: UIImagePickerController.SourceType = .camera
+    @State var showMainMenu = false
+    @State var showAlertError = false
+    @State var showAlertRegistValidation = false
+    @State var showAlertAboutPhone = false
+    @State var showAlertLoginValid = false
+    @State var showAlertLoginError = false
+    @State var showAlertAboutPassword = false
+    
     
     var body: some View {
         NavigationView{
             ScrollView{
                 VStack(spacing: 10){
-                    
                     if !isLoginMode{
                         Button{
-                            showImagePicker.toggle()
+                            self.showActonSheet.toggle()
                         }label: {
                             VStack{
                                 if let image = self.imageProfile{
@@ -91,7 +106,7 @@ struct ContentView: View {
                         }
                         .foregroundColor(Color.white)
                         .padding(.vertical)
-                        .background(Color.blue)
+                        .background(Color.purple)
                         .cornerRadius(32)
                         .padding()
                         .shadow(radius: 15)
@@ -101,6 +116,7 @@ struct ContentView: View {
                     Button(isLoginMode ? "У меня еще нет аккаунта" : "У меня уже есть аккаунт"){
                         isLoginMode.toggle()
                     }
+                    .foregroundColor(Color.purple)
                 }
                 .padding()
                 
@@ -108,18 +124,149 @@ struct ContentView: View {
             .navigationTitle(isLoginMode ? "Авторизация" : "Регистрация")
             .background(Color(.init(white: 0, alpha: 0.07)).ignoresSafeArea())
             .fullScreenCover(isPresented: $showImagePicker, onDismiss: nil){
-                ImagePicker(image: $imageProfile)
+                ImagePicker(image: $imageProfile, isShown: $showImagePicker, sourceType: self.sourceType)
                     .ignoresSafeArea()
+                
+            }
+            .fullScreenCover(isPresented: $showMainMenu){
+                MainUserView()
+            }
+                .actionSheet(isPresented: $showActonSheet){
+                        .init(title: Text("Настройки"), message: Text("Что вы хотите сделать?"), buttons: [
+                            .default(
+                            Text("Выбрать из галереи"),
+                            action: {
+                                self.showImagePicker.toggle()
+                                self.sourceType = .photoLibrary
+                            }
+                            ),
+                            .default(
+                            Text("Открыть камеру"),
+                            action: {
+                                self.showImagePicker.toggle()
+                                self.sourceType = .camera
+                            }
+                            ),
+                                .cancel()
+                        ])
+                            }
+                        }
+        .alert("Неверно введены данные", isPresented: $showAlertError){
+            Button("ОК", role: .cancel) {}
         }
-       
+        .alert("Некорректный номер телефона", isPresented: $showAlertAboutPhone){
+            Button("ОК", role: .cancel) {}
+        }
+        .alert("Не все поля заполнены", isPresented: $showAlertLoginValid){
+            Button("ОК", role: .cancel) {}
+        }
+        .alert("Неверно введены данные", isPresented: $showAlertLoginError){
+            Button("ОК", role: .cancel) {}
+        }
+        .alert("Остались пустые поля", isPresented: $showAlertRegistValidation){
+            Button("ОК", role: .cancel) {}
+        }
+        .alert("Пароль слишком короткий", isPresented: $showAlertAboutPassword){
+            Button("ОК", role: .cancel) {}
+        }
         
+    }
+        
+    
+    
+    func loginUser(){
+        Auth.auth().signIn(withEmail: "\(emailText)@mpt.ru", password: passwordText){response, error in
+            if error != nil{
+                print("ОшибОчка")
+                self.showAlertLoginError.toggle()
+                return
+            }
+            print("Succes Auth")
+            self.showMainMenu.toggle()
         }
+        
     }
     
     
+    func regUser(){
+        Auth.auth().createUser(withEmail: "\(emailText)@mpt.ru", password: passwordText){
+            result, error in
+            if error != nil{
+                print("failed")
+                self.showAlertError.toggle()
+                return
+            }
+            self.imageToStorage()
+        }
+    }
     
+   private func imageToStorage(){
+        let user = Auth.auth().currentUser
+        let uid = user!.uid
+        let ref = Storage.storage().reference().child("users").child(uid)
+        
+        guard let imageData = imageProfile?.jpegData(compressionQuality: 0.4) else {return}
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        _ = ref.putData(imageData, metadata: metadata) {metadata, error in
+            if let error = error{
+                print("Failed image 1 \(error)")
+            }
+            guard let metadata = metadata else {return}
+            _ = metadata.size
+            ref.downloadURL{ url, error in
+                guard let downloadUrl = url else {return}
+                self.storeUserInformation(imageProfileUrl: downloadUrl)
+                print("Success upload image")
+            }
+        }
+    }
+    private func storeUserInformation(imageProfileUrl: URL){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let userData = [
+            "email": "\(emailText)@mpt.ru",
+            "uid" : uid,
+            "profileImageUrl": imageProfileUrl.absoluteString,
+            "name" : nameProfile,
+            "surname" : surnameProfile,
+            "password" : passwordText,
+            "numberPhone" : numberPhone,
+            "permission" : "4"
+        ] as [String : Any]
+        Firestore.firestore().collection("users")
+            .document(uid).setData(userData){ err in
+                if let err = err{
+                    print(err)
+                    return
+                }
+                print("Success")
+                self.showMainMenu.toggle()
+            }
+    }
+    func checkValidationReg() -> Bool{
+        if emailText.isEmpty, passwordText.isEmpty, surnameProfile.isEmpty, numberPhone.isEmpty, nameProfile.isEmpty{
+            self.showAlertRegistValidation.toggle()
+            return false
+        }
+        else if numberPhone.count != 11{
+                self.showAlertAboutPhone.toggle()
+            return false
+        }
+        else if passwordText.count < 6{
+            self.showAlertAboutPassword.toggle()
+                return false
+            }
+        return true
+    }
     
-    
+    func checkValidationAuth()-> Bool{
+        if emailText.isEmpty, passwordText.isEmpty{
+            self.showAlertLoginValid.toggle()
+            return false
+        }
+        return true
+    }
 }
 
 

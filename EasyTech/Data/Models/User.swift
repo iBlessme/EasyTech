@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 struct User{
-    let uid, email, name, surname, numberPhone : String
+    let uid, email, name, surname, numberPhone, imageUrl : String
     let permission: String
 }
+

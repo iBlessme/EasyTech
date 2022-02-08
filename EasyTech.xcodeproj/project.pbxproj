@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		206BED5C27B287CE007E67B8 /* UserNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BED5B27B287CE007E67B8 /* UserNavBar.swift */; };
+		206BED5E27B2921C007E67B8 /* SettingUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BED5D27B2921B007E67B8 /* SettingUserView.swift */; };
+		206BED6127B2931F007E67B8 /* AddOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BED6027B2931F007E67B8 /* AddOrderView.swift */; };
+		206BED6327B29395007E67B8 /* MessageOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BED6227B29395007E67B8 /* MessageOrderView.swift */; };
+		206BED6527B294EC007E67B8 /* OrdersUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BED6427B294EC007E67B8 /* OrdersUserView.swift */; };
+		206BED6927B2ABEE007E67B8 /* AddOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BED6827B2ABED007E67B8 /* AddOrder.swift */; };
+		206BED6B27B2AC05007E67B8 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BED6A27B2AC05007E67B8 /* Order.swift */; };
 		20BE13B727B1230B00B76A9C /* EasyTechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BE13B627B1230B00B76A9C /* EasyTechApp.swift */; };
 		20BE13B927B1230B00B76A9C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BE13B827B1230B00B76A9C /* ContentView.swift */; };
 		20BE13BB27B1230E00B76A9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BE13BA27B1230E00B76A9C /* Assets.xcassets */; };
@@ -14,16 +21,22 @@
 		20BE13C627B1350800B76A9C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BE13C527B1350800B76A9C /* ImagePicker.swift */; };
 		20BE13C927B14A0600B76A9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20BE13C827B14A0600B76A9C /* GoogleService-Info.plist */; };
 		20BE13CB27B1581C00B76A9C /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BE13CA27B1581C00B76A9C /* Registration.swift */; };
-		20BE13CD27B1737E00B76A9C /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BE13CC27B1737D00B76A9C /* Auth.swift */; };
 		20C5756F27B181BC005BDF2B /* MainUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C5756E27B181BC005BDF2B /* MainUserView.swift */; };
 		20C5757427B182EF005BDF2B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C5757327B182EF005BDF2B /* User.swift */; };
 		20C5757627B183BF005BDF2B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C5757527B183BF005BDF2B /* UserModel.swift */; };
-		20C5757827B187D1005BDF2B /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C5757727B187D1005BDF2B /* Test.swift */; };
 		20C5757C27B18F19005BDF2B /* MainPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C5757B27B18F19005BDF2B /* MainPersonView.swift */; };
 		AB8C25610586FFE6CA422297 /* Pods_EasyTech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D7E2EA7C1169C1C396308E /* Pods_EasyTech.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		206BED5627B25AD6007E67B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		206BED5B27B287CE007E67B8 /* UserNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNavBar.swift; sourceTree = "<group>"; };
+		206BED5D27B2921B007E67B8 /* SettingUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUserView.swift; sourceTree = "<group>"; };
+		206BED6027B2931F007E67B8 /* AddOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderView.swift; sourceTree = "<group>"; };
+		206BED6227B29395007E67B8 /* MessageOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageOrderView.swift; sourceTree = "<group>"; };
+		206BED6427B294EC007E67B8 /* OrdersUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersUserView.swift; sourceTree = "<group>"; };
+		206BED6827B2ABED007E67B8 /* AddOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrder.swift; sourceTree = "<group>"; };
+		206BED6A27B2AC05007E67B8 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		20BE13B327B1230B00B76A9C /* EasyTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BE13B627B1230B00B76A9C /* EasyTechApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTechApp.swift; sourceTree = "<group>"; };
 		20BE13B827B1230B00B76A9C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,11 +45,9 @@
 		20BE13C527B1350800B76A9C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		20BE13C827B14A0600B76A9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		20BE13CA27B1581C00B76A9C /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
-		20BE13CC27B1737D00B76A9C /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		20C5756E27B181BC005BDF2B /* MainUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserView.swift; sourceTree = "<group>"; };
 		20C5757327B182EF005BDF2B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		20C5757527B183BF005BDF2B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		20C5757727B187D1005BDF2B /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		20C5757B27B18F19005BDF2B /* MainPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPersonView.swift; sourceTree = "<group>"; };
 		AFF4206DEE2BE30176A88D5A /* Pods-EasyTech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyTech.release.xcconfig"; path = "Target Support Files/Pods-EasyTech/Pods-EasyTech.release.xcconfig"; sourceTree = "<group>"; };
 		B0D7E2EA7C1169C1C396308E /* Pods_EasyTech.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyTech.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +74,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		206BED5F27B29302007E67B8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				206BED6027B2931F007E67B8 /* AddOrderView.swift */,
+				206BED6227B29395007E67B8 /* MessageOrderView.swift */,
+				206BED6427B294EC007E67B8 /* OrdersUserView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		20BE13AA27B1230B00B76A9C = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +106,7 @@
 		20BE13B527B1230B00B76A9C /* EasyTech */ = {
 			isa = PBXGroup;
 			children = (
+				206BED5627B25AD6007E67B8 /* Info.plist */,
 				20C5757027B18290005BDF2B /* Data */,
 				20BE13C727B1352A00B76A9C /* Views */,
 				20BE13B627B1230B00B76A9C /* EasyTechApp.swift */,
@@ -105,10 +127,10 @@
 		20BE13C727B1352A00B76A9C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				206BED5F27B29302007E67B8 /* Profile */,
 				20C5757A27B18F0A005BDF2B /* Person */,
 				20C5757927B18F01005BDF2B /* User */,
 				20BE13B827B1230B00B76A9C /* ContentView.swift */,
-				20C5757727B187D1005BDF2B /* Test.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -126,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				20C5757327B182EF005BDF2B /* User.swift */,
+				206BED6A27B2AC05007E67B8 /* Order.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -135,8 +158,8 @@
 			children = (
 				20BE13C527B1350800B76A9C /* ImagePicker.swift */,
 				20BE13CA27B1581C00B76A9C /* Registration.swift */,
-				20BE13CC27B1737D00B76A9C /* Auth.swift */,
 				20C5757527B183BF005BDF2B /* UserModel.swift */,
+				206BED6827B2ABED007E67B8 /* AddOrder.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -145,6 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				20C5756E27B181BC005BDF2B /* MainUserView.swift */,
+				206BED5B27B287CE007E67B8 /* UserNavBar.swift */,
+				206BED5D27B2921B007E67B8 /* SettingUserView.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -282,14 +307,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				20C5756F27B181BC005BDF2B /* MainUserView.swift in Sources */,
-				20BE13CD27B1737E00B76A9C /* Auth.swift in Sources */,
-				20C5757827B187D1005BDF2B /* Test.swift in Sources */,
+				206BED6327B29395007E67B8 /* MessageOrderView.swift in Sources */,
+				206BED6B27B2AC05007E67B8 /* Order.swift in Sources */,
 				20C5757627B183BF005BDF2B /* UserModel.swift in Sources */,
 				20C5757C27B18F19005BDF2B /* MainPersonView.swift in Sources */,
 				20BE13CB27B1581C00B76A9C /* Registration.swift in Sources */,
 				20BE13C627B1350800B76A9C /* ImagePicker.swift in Sources */,
+				206BED6927B2ABEE007E67B8 /* AddOrder.swift in Sources */,
+				206BED5E27B2921C007E67B8 /* SettingUserView.swift in Sources */,
+				206BED6527B294EC007E67B8 /* OrdersUserView.swift in Sources */,
 				20BE13B927B1230B00B76A9C /* ContentView.swift in Sources */,
 				20BE13B727B1230B00B76A9C /* EasyTechApp.swift in Sources */,
+				206BED6127B2931F007E67B8 /* AddOrderView.swift in Sources */,
+				206BED5C27B287CE007E67B8 /* UserNavBar.swift in Sources */,
 				20C5757427B182EF005BDF2B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +455,7 @@
 				DEVELOPMENT_TEAM = 3975FF67Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EasyTech/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -457,6 +488,7 @@
 				DEVELOPMENT_TEAM = 3975FF67Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EasyTech/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
