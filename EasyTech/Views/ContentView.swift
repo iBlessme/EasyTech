@@ -196,16 +196,16 @@ struct ContentView: View {
                 self.showAlertError.toggle()
                 return
             }
-            self.imageToStorage()
+            self.imageToStorage(imageP: (imageProfile ?? UIImage(named: "Logo-MPT"))!)
         }
     }
     
-   private func imageToStorage(){
+    private func imageToStorage(imageP: UIImage){
         let user = Auth.auth().currentUser
         let uid = user!.uid
         let ref = Storage.storage().reference().child("users").child(uid)
         
-        guard let imageData = imageProfile?.jpegData(compressionQuality: 0.4) else {return}
+        guard let imageData = imageP.jpegData(compressionQuality: 0.4) else {return}
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
         

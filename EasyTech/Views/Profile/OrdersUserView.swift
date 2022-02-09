@@ -8,14 +8,24 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
+
+
 struct OrdersUserView: View {
     @ObservedObject var ordersUser = GetOrderToUSer()
+    @State var showAlertToDelete = false
+    @State var refOrder = ""
+    @State var update = false
+    
     
     var body: some View {
+        
         ScrollView{
             ForEach(ordersUser.orderList){ orders in
+                
+                VStack(alignment: .leading){
+                    
+                    
                     ZStack {
-                        
                         WebImage(url: URL(string: orders.imageOrder))
                             .resizable()
                             .scaledToFill()
@@ -25,18 +35,35 @@ struct OrdersUserView: View {
                             .overlay(RoundedRectangle(cornerRadius: 20)
                                         .stroke(Color(.label), lineWidth: 0))
                         .shadow(radius: 5)
-                        HStack {
-                            Circle()
-                                .foregroundColor(Color.green)
-                            .frame(width: 15, height: 15)
-                            Text("online")
-                                .font(.system(size: 12))
-                                .foregroundColor(Color(.lightGray))
+                        VStack {
+                            HStack {
+
+                                Text("\(orders.status)")
+                                    .font(.system(size: 15))
+                                    .foregroundColor(Color.white)
+                                    .shadow(color: Color.black, radius: 3, x: 1, y: 1)
+                                Spacer()
+                                Button{
+                                    self.showAlertToDelete.toggle()
+                                    self.refOrder = orders.id
+                                }label: {
+                                    Image(systemName: "trash.fill")
+                                        .frame(width: 30, height: 30)
+                                        .foregroundColor(Color.white)
+                                        .shadow(color: Color.black, radius: 3, x: 1, y: 1)
+                                }
+                            }
+                            Spacer()
                         }
+                        .padding()
+                       
                         VStack{
                             Spacer()
                         HStack {
-                            Text("Jslsdal")
+                            Text("\(orders.dateRegistration)")
+                                .foregroundColor(Color.white)
+                                .font(.system(size: 15, weight: .bold))
+                                .shadow(color: Color.black, radius: 5, x: 1, y: 1)
                             Spacer()
                             }
                         }
@@ -53,13 +80,7 @@ struct OrdersUserView: View {
                         HStack{
                             Text("Кабинет: \(orders.hall)")
                             Spacer()
-                            Text("Статус: \(orders.status)")
-                        }
-                        Divider()
-                        HStack{
-                            Text("Дата: \(orders.dateRegistration)")
-                            Spacer()
-                            Text("Завершено: \(orders.dateCompleted)")
+                            
                         }
                         Divider()
                         .padding(.vertical, 2)
@@ -72,20 +93,35 @@ struct OrdersUserView: View {
                     .foregroundColor(Color.white)
                     
                 }
-                .background(Color(.init(white: 0, alpha: 0.3)))
+                
+                .background(Color(.init(white: 0, alpha: 0.2)))
                 .background(Color.purple)
                 .cornerRadius(20)
                 
                 
+                
             }
             
-             
+            
+                       
             }
-        
+        .shadow(radius: 5)
+        .alert("Вы действительно хотите удалить заявку?",isPresented: $showAlertToDelete){
+            Button("Да"){
+                DeleteOrder().deleteOrder(ref: self.refOrder)
+            }
+            Button{
+                self.showAlertToDelete = false
+            }label: {
+                Text("Отмена")
+                    .foregroundColor(Color.red)
+            }
+            
         
         }
+    }
         
-    
+    }
 
 struct OrdersUserView_Previews: PreviewProvider {
     static var previews: some View {

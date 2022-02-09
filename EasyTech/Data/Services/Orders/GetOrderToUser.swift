@@ -27,7 +27,6 @@ class GetOrderToUSer: ObservableObject{
             }
             querySnapshot?.documents.forEach({snapshot in
                 
-//                let data = snapshot.data()
                 let id = snapshot.documentID
                 let housing = snapshot.get("housing") as? String ?? "Не указан"
                 let floor = snapshot.get("floor") as? String ?? "Не указан"
@@ -43,31 +42,15 @@ class GetOrderToUSer: ObservableObject{
                 let order = Order(id: id, imageOrder: imageOrder, housing: housing, floor: floor, description: description, hall: hall, status: status, dateRegistration: dateRegistration, dateCompleted: dateCompleted, idClient: idClient, idPerson: idPerson)
                 
                 self.orderList.append(order)
+                print(order)
                 
             })
-//            for document in querySnapshot!.documents{
-//
-//                let id = document.documentID
-//                let housing = document.get("housing") as? String ?? ""
-//                let floor = document.get("floor") as? String ?? ""
-//                let description = document.get("description") as? String ?? ""
-//                let hall = document.get("hall") as? String ?? ""
-//                let status = document.get("status") as? String ?? ""
-//                let dateRegistration = document.get("dateRegistration") as? String ?? ""
-//                let dateCompleted = document.get("dateCompleted") as? String ?? "Не выполнен"
-//                let idClient = document.get("idClient") as? String ?? ""
-//                let idPerson = document.get("idPerson") as? String ?? "Ожидание сотрудника"
-//                let imageOrder = document.get("imageOrder") as? String ?? ""
-//                print(document)
-//
-//                self.orderList.append(completion())
-                
-                
-            }
-//
-            
-            
+          
         }
+        }
+    func reload(){
+        self.fetchOrderToUser()
+    }
         
         
     }

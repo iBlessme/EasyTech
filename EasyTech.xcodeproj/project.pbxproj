@@ -15,6 +15,8 @@
 		206BED6927B2ABEE007E67B8 /* AddOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BED6827B2ABED007E67B8 /* AddOrder.swift */; };
 		206BED6B27B2AC05007E67B8 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BED6A27B2AC05007E67B8 /* Order.swift */; };
 		206BED6D27B37B76007E67B8 /* GetOrderToUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BED6C27B37B74007E67B8 /* GetOrderToUser.swift */; };
+		2094B32227B43EE300B99A6A /* RefreshableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 2094B32127B43EE300B99A6A /* RefreshableScrollView */; };
+		2094B32527B4435E00B99A6A /* DeleteOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2094B32427B4435E00B99A6A /* DeleteOrder.swift */; };
 		20BE13B727B1230B00B76A9C /* EasyTechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BE13B627B1230B00B76A9C /* EasyTechApp.swift */; };
 		20BE13B927B1230B00B76A9C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BE13B827B1230B00B76A9C /* ContentView.swift */; };
 		20BE13BB27B1230E00B76A9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BE13BA27B1230E00B76A9C /* Assets.xcassets */; };
@@ -38,6 +40,7 @@
 		206BED6827B2ABED007E67B8 /* AddOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrder.swift; sourceTree = "<group>"; };
 		206BED6A27B2AC05007E67B8 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		206BED6C27B37B74007E67B8 /* GetOrderToUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrderToUser.swift; sourceTree = "<group>"; };
+		2094B32427B4435E00B99A6A /* DeleteOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteOrder.swift; sourceTree = "<group>"; };
 		20BE13B327B1230B00B76A9C /* EasyTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BE13B627B1230B00B76A9C /* EasyTechApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTechApp.swift; sourceTree = "<group>"; };
 		20BE13B827B1230B00B76A9C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2094B32227B43EE300B99A6A /* RefreshableScrollView in Frameworks */,
 				AB8C25610586FFE6CA422297 /* Pods_EasyTech.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +86,24 @@
 				206BED6427B294EC007E67B8 /* OrdersUserView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		2094B32327B4434700B99A6A /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				206BED6827B2ABED007E67B8 /* AddOrder.swift */,
+				206BED6C27B37B74007E67B8 /* GetOrderToUser.swift */,
+				2094B32427B4435E00B99A6A /* DeleteOrder.swift */,
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
+		2094B32627B4666200B99A6A /* User */ = {
+			isa = PBXGroup;
+			children = (
+				20C5757527B183BF005BDF2B /* UserModel.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		20BE13AA27B1230B00B76A9C = {
@@ -156,10 +178,9 @@
 		20C5757227B182AC005BDF2B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				2094B32627B4666200B99A6A /* User */,
+				2094B32327B4434700B99A6A /* Orders */,
 				20BE13C527B1350800B76A9C /* ImagePicker.swift */,
-				20C5757527B183BF005BDF2B /* UserModel.swift */,
-				206BED6827B2ABED007E67B8 /* AddOrder.swift */,
-				206BED6C27B37B74007E67B8 /* GetOrderToUser.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -209,6 +230,9 @@
 			dependencies = (
 			);
 			name = EasyTech;
+			packageProductDependencies = (
+				2094B32127B43EE300B99A6A /* RefreshableScrollView */,
+			);
 			productName = EasyTech;
 			productReference = 20BE13B327B1230B00B76A9C /* EasyTech.app */;
 			productType = "com.apple.product-type.application";
@@ -237,6 +261,9 @@
 				Base,
 			);
 			mainGroup = 20BE13AA27B1230B00B76A9C;
+			packageReferences = (
+				2094B32027B43EE300B99A6A /* XCRemoteSwiftPackageReference "RefreshableScrollView" */,
+			);
 			productRefGroup = 20BE13B427B1230B00B76A9C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -317,6 +344,7 @@
 				206BED6D27B37B76007E67B8 /* GetOrderToUser.swift in Sources */,
 				206BED6527B294EC007E67B8 /* OrdersUserView.swift in Sources */,
 				20BE13B927B1230B00B76A9C /* ContentView.swift in Sources */,
+				2094B32527B4435E00B99A6A /* DeleteOrder.swift in Sources */,
 				20BE13B727B1230B00B76A9C /* EasyTechApp.swift in Sources */,
 				206BED6127B2931F007E67B8 /* AddOrderView.swift in Sources */,
 				206BED5C27B287CE007E67B8 /* UserNavBar.swift in Sources */,
@@ -456,12 +484,14 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EasyTech/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Для загрузки изображения необходимо дать разрешение к камере!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -489,12 +519,14 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EasyTech/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Для загрузки изображения необходимо дать разрешение к камере!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -531,6 +563,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2094B32027B43EE300B99A6A /* XCRemoteSwiftPackageReference "RefreshableScrollView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TariqAlmazyad/RefreshableScrollView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2094B32127B43EE300B99A6A /* RefreshableScrollView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2094B32027B43EE300B99A6A /* XCRemoteSwiftPackageReference "RefreshableScrollView" */;
+			productName = RefreshableScrollView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 20BE13AB27B1230B00B76A9C /* Project object */;
 }

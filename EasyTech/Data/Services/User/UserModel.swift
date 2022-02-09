@@ -1,0 +1,125 @@
+//
+//  UserModel.swift
+//  EasyTech
+//
+//  Created by iBlessme on 07.02.2022.
+//
+
+import Foundation
+import FirebaseAuth
+import FirebaseFirestore
+import FirebaseStorage
+import UIKit
+
+class UserModel: ObservableObject{
+    
+    @Published var userModel: User?
+    @Published var isUserCurrentLogOut = false
+    
+    init(){
+        fetchCurrentUser()
+        DispatchQueue.main.async {
+            self.isUserCurrentLogOut = Auth.auth().currentUser?.uid == nil
+        }
+    }
+    
+    private func fetchCurrentUser(){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        Firestore.firestore().collection("users").document(uid).getDocument{snapshot, error in
+            if error != nil{
+                print("Failed load user")
+                return
+            }
+     
+                guard let data = snapshot?.data() else {return}
+                print(data)
+                let uid = data["uid"] as? String ?? ""
+                let email = data["email"] as? String ?? ""
+                let name = data["name"] as? String ?? ""
+                let surname = data["surname"] as? String ?? ""
+                let numberPhone = data["numberPhone"] as? String ?? ""
+                let permission = data["permission"] as? String ?? ""
+                let imageURL = data["profileImageUrl"] as? String ?? ""
+                
+            self.userModel = User(uid: uid, email: email, name: name, surname: surname, numberPhone: numberPhone, imageUrl: imageURL, permission: permission)
+            
+        }
+    }
+    
+    func handleSignOut(){
+        isUserCurrentLogOut.toggle()
+        try? Auth.auth().signOut()
+        
+    }
+    
+    func checkPickPhoto(name: String, surname: String, phoneNumber: String, imageURL: UIImage, isPicker: Bool){
+        if isPicker{
+            self.updateImageProfile(name: name, surname: surname, phoneNumber: phoneNumber, imageURL: imageURL)
+        }
+        else{
+            self.updateDataWithoutImage(name: name, surname: surname, phoneNumber: phoneNumber)
+        }
+    }
+    
+    func updateDataWithoutImage(name: String, surname: String, phoneNumber: String){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+         Firestore.firestore().collection("users").document(uid).updateData([
+            "name": name,
+            "surname" : surname,
+            "numberPhone" : phoneNumber,
+         ]){err in
+             if err != nil{
+                 print("Не удалось перезаписать данные")
+                 return
+             }
+             print("Success Update Info User")
+         }
+    }
+    
+    
+    func updateImageProfile(name: String, surname: String, phoneNumber: String, imageURL: UIImage){
+        
+        let user = Auth.auth().currentUser
+        let uid = user!.uid
+        let ref = Storage.storage().reference().child("users").child(uid)
+        
+        guard let imageData = imageURL.jpegData(compressionQuality: 0.4) else {return}
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        _ = ref.putData(imageData, metadata: metadata) {metadata, error in
+            if let error = error{
+                print("Failed image 1 \(error)")
+            }
+            guard let metadata = metadata else {return}
+            _ = metadata.size
+            ref.downloadURL{ url, error in
+                guard let downloadUrl = url else {return}
+                self.updateStoreInformation(name: name, surname: surname, phoneNumber: phoneNumber, imageURL: downloadUrl)
+                print("Success upload image")
+            }
+        }
+        
+        
+        
+    }
+    
+    func updateStoreInformation(name: String, surname: String, phoneNumber: String, imageURL: URL){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+         Firestore.firestore().collection("users").document(uid).updateData([
+            "name": name,
+            "surname" : surname,
+            "numberPhone" : phoneNumber,
+            "profileImageUrl" : imageURL.absoluteString
+         ]){err in
+             if err != nil{
+                 print("Не удалось перезаписать данные")
+                 return
+             }
+             print("Success Update Info User")
+         }
+        
+    }
+    
+    
+}

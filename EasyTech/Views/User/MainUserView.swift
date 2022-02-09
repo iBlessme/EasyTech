@@ -14,6 +14,7 @@ struct MainUserView: View {
     @ObservedObject private var vm = UserModel()
     
     var body: some View {
+        NavigationView{
         VStack {
             UserNavBar()
 //            Divider()
@@ -25,8 +26,10 @@ struct MainUserView: View {
             MessageOrderView()
         , alignment: .bottom)
         .navigationBarHidden(true)
-        .padding()
+        .padding(.horizontal)
         .background(Color(.init(white: 0, alpha: 0.07)).ignoresSafeArea())
+    }
+        
     }
     
 }

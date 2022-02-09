@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddOrderView: View {
     
+    @ObservedObject var ordersUser = GetOrderToUSer()
     @Binding var isVisible: Bool
     @State var showAddOrder = false
     @State var image: UIImage?
@@ -22,6 +23,7 @@ struct AddOrderView: View {
     @State var showAlertError = false
     @State var checkAlertValdi = false
     @State var showErrorAboutDesc = false
+    @State var checkImage = false
     
     var body: some View {
         NavigationView{
@@ -29,12 +31,13 @@ struct AddOrderView: View {
         VStack{
             Button{
                 self.showActonSheet.toggle()
+                
             }label: {
-                if let image = self.image {
+                if let image = self.image{
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 250, height: 150)
+                        .frame(height: 300)
                         .cornerRadius(20)
                 }
                 else{
@@ -104,8 +107,12 @@ struct AddOrderView: View {
             
             Button{
                 if checkValid(){
-                AddOrder().imageToStorage(imageOrder: image!, housing: housing, floor: floor, description: description, hall: hall)
+                    AddOrder().imageToStorage(imageOrder: (image ?? UIImage(systemName: "camera.fill"))!, housing: housing, floor: floor, description: description, hall: hall)
+                    
+//                    ordersUser.reload()
+                   
                     self.isVisible = false
+                    
                 }
             }label: {
                 HStack {

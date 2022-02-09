@@ -14,8 +14,16 @@ struct UserNavBar: View {
     
     @State var shouldShowLogOutOptions = false
     @State var showPersonView = false
+    @State var showAdminView = false
     @State var showSettingProfile = false
     @State var isLogOut = false
+    @State var updateView = false
+    @State var alertErrorGoPosition = false
+    
+    @State var name = ""
+    @State var surname = ""
+    @State var phoneNumber = ""
+    @State var image = ""
     
     @ObservedObject private var vm = UserModel()
     
@@ -33,13 +41,23 @@ struct UserNavBar: View {
             
             VStack(alignment: .leading, spacing: 0.1){
                 Text("\(vm.userModel?.name ?? "") \(vm.userModel?.surname ?? "")")
-                    .font(.system(size: 24, weight: .bold))
+                    .font(.system(size: 20, weight: .bold))
                 
                 Text("\(vm.userModel?.email ?? "")")
                     .font(.system(size: 14, weight: .bold))
                
             }
             Spacer()
+            Button{
+                GetOrderToUSer().reload()
+                self.updateView.toggle()
+                print("Succes")
+            }label: {
+                Image(systemName: "arrow.counterclockwise")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundColor(Color(.label))
+            }
+
             Button{
                 shouldShowLogOutOptions.toggle()
             } label: {
@@ -51,16 +69,17 @@ struct UserNavBar: View {
         }
         .padding()
         .actionSheet(isPresented: $shouldShowLogOutOptions){
-            .init(title: Text("Настройки"), message: Text("Что вы хотите сделать?"), buttons: [
+            .init(title: Text("Настройки"), message: Text("Выберите действие"), buttons: [
                 .default(
                 Text("Войти как сотрудник"),
                 action: {
-                    self.showPersonView.toggle()
+                    self.checkPosition()
                 }
                 ),
                 .default(
                 Text("Изменить профиль"),
                 action: {
+                    self.updateInfoView()
                     self.showSettingProfile.toggle()
                 }
                 ),
@@ -87,7 +106,45 @@ struct UserNavBar: View {
             ContentView()
         }
         .sheet(isPresented: $showSettingProfile){
-            SettingUserView()
+            SettingUserView(isVisible: $showSettingProfile,name: self.$name, surname: self.$surname, numberPhone: self.$phoneNumber, image: self.$image)
+        }
+        .fullScreenCover(isPresented: $updateView){
+            MainUserView()
+        }
+        .fullScreenCover(isPresented: $showAdminView){
+            MainUserView()
+        }
+        .alert("Ошибка входа. У вас недостаточно прав",isPresented: $alertErrorGoPosition){
+            Button("ОК"){
+                self.alertErrorGoPosition = false
+            }
+        }
+    }
+    
+    func updateInfoView(){
+        self.name = vm.userModel?.name ?? ""
+        self.surname = vm.userModel?.surname ?? ""
+        self.phoneNumber = vm.userModel?.numberPhone ?? ""
+        self.image = vm.userModel?.imageUrl ?? ""
+    }
+    
+    func checkPosition() {
+        let position = vm.userModel?.permission
+        if position == "4"{
+            self.alertErrorGoPosition = true
+            
+        }
+        else if position == "3" || position == "2"{
+            self.showPersonView.toggle()
+            
+        }
+        else if position == "1"{
+            self.showAdminView.toggle()
+            
+        }
+        else{
+            return
+            
         }
     }
 }
