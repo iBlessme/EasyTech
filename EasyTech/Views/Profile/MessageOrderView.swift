@@ -10,6 +10,7 @@ import SwiftUI
 struct MessageOrderView: View {
     
     @State var showAddOrder = false
+//    @Binding var isPresented: Bool
     
     var body: some View {
         Button{
@@ -29,7 +30,7 @@ struct MessageOrderView: View {
             .shadow(radius: 15)
         }
         .sheet(isPresented: $showAddOrder){
-            AddOrderView()
+            AddOrderView(isVisible: self.$showAddOrder)
         }
     }
 }

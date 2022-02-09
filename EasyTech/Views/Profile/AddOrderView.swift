@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddOrderView: View {
     
+    @Binding var isVisible: Bool
     @State var showAddOrder = false
     @State var image: UIImage?
     @State var showImagePicker = false
@@ -18,6 +19,9 @@ struct AddOrderView: View {
     @State var description = ""
     @State var showActonSheet = false
     @State var sourceType: UIImagePickerController.SourceType = .camera
+    @State var showAlertError = false
+    @State var checkAlertValdi = false
+    @State var showErrorAboutDesc = false
     
     var body: some View {
         NavigationView{
@@ -99,7 +103,10 @@ struct AddOrderView: View {
             .padding()
             
             Button{
-                AddOrder().addOrder(imageOrder: image!, housing: housing, floor: floor, description: description, hall: hall)
+                if checkValid(){
+                AddOrder().imageToStorage(imageOrder: image!, housing: housing, floor: floor, description: description, hall: hall)
+                    self.isVisible = false
+                }
             }label: {
                 HStack {
                     Spacer()
@@ -115,10 +122,14 @@ struct AddOrderView: View {
                 .shadow(radius: 15)
             }
             
+            
         }
         .fullScreenCover(isPresented: $showImagePicker, onDismiss: nil){
             ImagePicker(image: $image, isShown: $showImagePicker, sourceType: self.sourceType)
                 .ignoresSafeArea()
+        }
+        .alert("Остались пустые поля", isPresented: $showAlertError){
+            Button("ОК", role: .cancel) {}
         }
         .actionSheet(isPresented: $showActonSheet){
             .init(title: Text("Настройки"), message: Text("Что вы хотите сделать?"), buttons: [
@@ -131,13 +142,15 @@ struct AddOrderView: View {
                 }
                 ),
                 .default(
-                Text("Открыть камеру"),
+                Text("Открыть камеру")
+                    .foregroundColor(Color.purple),
                 action: {
                     self.showImagePicker.toggle()
                     self.sourceType = .camera
                 }
-                ),
-                    .cancel()
+                )
+                    ,
+                .cancel()
             ])
                 }
         
@@ -149,10 +162,21 @@ struct AddOrderView: View {
         
         
     }
+    func checkValid() -> Bool{
+        if hall.isEmpty, description.isEmpty{
+            self.showAlertError.toggle()
+            return false
+        }
+        else if description.count > 150{
+            self.showErrorAboutDesc.toggle()
+            return false
+        }
+        return true
+    }
 }
 
 struct AddOrderView_Previews: PreviewProvider {
     static var previews: some View {
-        AddOrderView()
+        AddOrderView(isVisible: .constant(true))
     }
 }

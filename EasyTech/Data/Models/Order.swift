@@ -7,15 +7,16 @@
 
 import Foundation
 
-struct Order{
+struct Order: Identifiable{
+    let id: String
     let imageOrder: String
     let housing: String
     let floor: String
     let description: String
     let hall: String
     let status: String
-    let dateRegistration: Data
-    let dateCompleted: Date
+    let dateRegistration: String
+    let dateCompleted: String
     let idClient: String
     let idPerson: String
 }

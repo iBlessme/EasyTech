@@ -26,6 +26,7 @@ struct MainUserView: View {
         , alignment: .bottom)
         .navigationBarHidden(true)
         .padding()
+        .background(Color(.init(white: 0, alpha: 0.07)).ignoresSafeArea())
     }
     
 }
