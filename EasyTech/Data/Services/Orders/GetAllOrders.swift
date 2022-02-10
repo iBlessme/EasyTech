@@ -22,6 +22,7 @@ class GetAllOrders: ObservableObject{
         Firestore.firestore().collection("users").getDocuments{ users, err in
             if err != nil{
                 print("Не уадлось получить пользователей")
+                return
                 }
             for document in users!.documents{
                 document.reference.collection("orders").getDocuments{
@@ -44,12 +45,12 @@ class GetAllOrders: ObservableObject{
                                     let imageOrder = snapshot.get("imageOrder") as? String ?? ""
                     
                                     let order = Order(id: id, imageOrder: imageOrder, housing: housing, floor: floor, description: description, hall: hall, status: status, dateRegistration: dateRegistration, dateCompleted: dateCompleted, idClient: idClient, idPerson: idPerson)
-                    
                                     self.allOrders.append(order)
                                     print(order)
                     })
                     
                 }
+                
             }
             
 //        Firestore.firestore().collection("users").document().collection("orders").getDocuments{snapshots,err  in
@@ -76,5 +77,9 @@ class GetAllOrders: ObservableObject{
 //                print(order)
 //            })
         }
+    }
+    func reload() async{
+        self.allOrders.removeAll()
+        self.fetchAllOrder()
     }
 }

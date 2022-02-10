@@ -11,6 +11,7 @@ struct ListOrdersPersonView: View {
     
     @ObservedObject private var vm = GetAllOrders()
     @ObservedObject private var user = UserModel()
+    @StateObject var refreshed = GetAllOrders()
     
     @State var id = ""
     @State var imageOrder = ""
@@ -45,6 +46,7 @@ struct ListOrdersPersonView: View {
                     self.userPosition = user.userModel?.permission ?? ""
 
                 }){
+                    VStack{
                     HStack{
                         
                         Text("Корпус: \(order.housing)")
@@ -55,8 +57,13 @@ struct ListOrdersPersonView: View {
                     }
                     .font(Font.system(size: 15, weight: .bold))
                     .shadow(radius: 10)
-                   
-                    
+                        HStack{
+                            Text("Статус: \(order.status)")
+                                .font(Font.system(size: 20, weight: .bold))
+                            Spacer()
+                        }
+                        .padding(.vertical, 3)
+                    }
                     
                     
                 }
@@ -69,6 +76,12 @@ struct ListOrdersPersonView: View {
             }
             
             }
+        .refreshable {
+            do{
+                
+               await vm.reload()
+            }
+        }
         
         .listStyle(.plain)
         .refreshable {
