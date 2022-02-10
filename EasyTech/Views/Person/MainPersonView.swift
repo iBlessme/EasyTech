@@ -10,18 +10,40 @@ import FirebaseAuth
 
 struct MainPersonView: View {
     var body: some View {
-        VStack {
-            Text("Person")
-            Button{
-                do{
-                            try Auth.auth().signOut()
-                        }catch{
-                            print("Ошибка при выходе")
+        
+            VStack{
+                PersonNavBarView()
+                TabView{
+                    ListOrdersPersonView()
+                        .tabItem{
+                            Text("Входящие")
+                            Image(systemName: "folder.fill.badge.plus")
+                               
                         }
-            }label: {
-                Text("Выйти нахуй")
+                      
+                    ListActivOrdersView()
+                        .tabItem{
+                            Text("Активные")
+                            Image(systemName: "folder.fill")
+                               
+                        }
+                        
+                    ChatPersonView()
+                        .tabItem{
+                            Text("Сообщения")
+                            Image(systemName: "message.fill")
+                               
+                        }
+                       
+                }
+                .accentColor(Color.purple)
             }
-        }
+            
+//            .navigationBarHidden(true)
+            .padding(.horizontal)
+            .background(Color(.init(white: 0, alpha: 0.07)).ignoresSafeArea())
+            
+        
     }
 }
 

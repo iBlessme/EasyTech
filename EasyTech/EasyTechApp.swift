@@ -21,7 +21,7 @@ struct EasyTechApp: App {
         WindowGroup {
             
             if Auth.auth().currentUser != nil{
-                    MainUserView()
+                    MainPersonView()
              
             }
             else{
