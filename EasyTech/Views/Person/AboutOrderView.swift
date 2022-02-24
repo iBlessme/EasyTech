@@ -10,6 +10,8 @@ import FirebaseAuth
 import SDWebImageSwiftUI
 
 struct AboutOrderView: View {
+    
+    
     @Binding var id: String
     @Binding var imageOrder: String
     @Binding var housing: String
@@ -22,8 +24,11 @@ struct AboutOrderView: View {
     @Binding var idClient: String
     @Binding var idPerson: String
     @Binding var userosition: String
+    @Binding var phoneNumber: String
+  
     @State var isSuccesToJob = false
     @State var isShowAlrtToErrorJob = false
+    
     
     var body: some View {
         
@@ -81,6 +86,39 @@ struct AboutOrderView: View {
                         .shadow(radius: 10)
                         .font(Font.system(size: 15, weight: .bold))
                         .padding(3)
+                        
+                        
+                        if status != "Завершен"{
+                        if idPerson == Auth.auth().currentUser?.uid{
+                            
+                            Button{
+                                print("Clouse order")
+                                self.checkPosition()
+                                if self.isSuccesToJob{
+                                    GetOrderToPerson().clouseOrder(id: id)
+                                }
+                                else{
+                                    self.isShowAlrtToErrorJob.toggle()
+                                }
+                            }label: {
+                                HStack {
+                                    Spacer()
+                                    Text("Завершить")
+                                        .font(.system(size: 16, weight: .bold))
+                                    Spacer()
+                                }
+                                .foregroundColor(Color.white)
+                                .padding(.vertical)
+                                .background(Color.purple)
+                                .cornerRadius(32)
+                                .padding(.horizontal)
+                                .shadow(radius: 15)
+                            }
+                            .padding(.top, 10)
+                            
+                            
+                        }
+                        else{
                         Button{
                             print("Succes")
                             self.checkPosition()
@@ -96,15 +134,31 @@ struct AboutOrderView: View {
                                 Text("Взять в работу")
                                     .font(.system(size: 16, weight: .bold))
                                 Spacer()
-                            }
+                                }
                             .foregroundColor(Color.white)
                             .padding(.vertical)
                             .background(Color.purple)
                             .cornerRadius(32)
                             .padding(.horizontal)
                             .shadow(radius: 15)
-                        }
+                            }
                         .padding(.top, 10)
+                            }
+                        }
+                        else{
+                            HStack {
+                                Spacer()
+                                Text("Завершен")
+                                    .font(.system(size: 16, weight: .bold))
+                                Spacer()
+                                }
+                            .foregroundColor(Color.white)
+                            .padding(.vertical)
+                            .background(Color.gray)
+                            .cornerRadius(32)
+                            .padding(.horizontal)
+                            .shadow(radius: 15)
+                        }
                         
                         
                     }
@@ -114,8 +168,23 @@ struct AboutOrderView: View {
                 
                 Spacer()
             }
+            
         }.background(Color(.init(white: 0, alpha: 0.07)).ignoresSafeArea())
+            .toolbar{
+                Button{
+                    if let url = URL(string: "tel://\(phoneNumber)"){
+                        UIApplication.shared.openURL(url)
+                    }
+                }label: {
+                    Image(systemName: "phone.fill")
+                        .foregroundColor(Color.purple)
+                        .shadow(radius: 5)
+                }
+            }
         
+//        if let url = URL(string: "tel://\(numberPh)") {
+//                     UIApplication.shared.openURL(url)
+//                 }
     }
         func checkPosition(){
             if userosition == "3"{
@@ -137,7 +206,7 @@ struct AboutOrderView: View {
 
 struct AboutOrderView_Previews: PreviewProvider {
     static var previews: some View {
-        AboutOrderView(id: .constant(""), imageOrder: .constant(""), housing: .constant(""), floor: .constant(""), description: .constant(""), hall: .constant(""), status: .constant(""), dateRegistration: .constant(""), dateCompleted: .constant(""), idClient: .constant(""), idPerson: .constant(""), userosition: .constant(""))
+        AboutOrderView(id: .constant(""), imageOrder: .constant(""), housing: .constant(""), floor: .constant(""), description: .constant(""), hall: .constant(""), status: .constant(""), dateRegistration: .constant(""), dateCompleted: .constant(""), idClient: .constant(""), idPerson: .constant(""), userosition: .constant(""), phoneNumber: .constant(""))
     }
     
 }

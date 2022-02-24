@@ -38,8 +38,9 @@ class GetOrderToUSer: ObservableObject{
                 let idClient = snapshot.get("idClient") as? String ?? ""
                 let idPerson = snapshot.get("idPerson") as? String ?? "Ожидание сотрудника"
                 let imageOrder = snapshot.get("imageOrder") as? String ?? ""
+                let numberPhone = snapshot.get("numberPhone") as? String ?? ""
                             
-                let order = Order(id: id, imageOrder: imageOrder, housing: housing, floor: floor, description: description, hall: hall, status: status, dateRegistration: dateRegistration, dateCompleted: dateCompleted, idClient: idClient, idPerson: idPerson)
+                let order = Order(id: id, imageOrder: imageOrder, housing: housing, floor: floor, description: description, hall: hall, status: status, dateRegistration: dateRegistration, dateCompleted: dateCompleted, idClient: idClient, idPerson: idPerson, numberPhone: numberPhone)
                 
                 self.orderList.append(order)
                 print(order)
@@ -49,6 +50,7 @@ class GetOrderToUSer: ObservableObject{
         }
         }
     func reload(){
+        self.orderList.removeAll()
         self.fetchOrderToUser()
     }
         

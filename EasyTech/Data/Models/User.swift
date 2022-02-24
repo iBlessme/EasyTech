@@ -8,8 +8,9 @@
 import Foundation
 import UIKit
 
-struct User{
-    let uid, email, name, surname, numberPhone, imageUrl : String
+struct User: Identifiable, Codable, Hashable{
+//    var uid: String
+    let id, email, name, surname, numberPhone, imageUrl : String
     let permission: String
 }
 

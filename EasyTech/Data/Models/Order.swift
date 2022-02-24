@@ -19,4 +19,5 @@ struct Order: Identifiable{
     let dateCompleted: String
     let idClient: String
     let idPerson: String
+    let numberPhone: String
 }

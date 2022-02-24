@@ -26,6 +26,7 @@ struct UserNavBar: View {
     @State var image = ""
     
     @ObservedObject private var vm = UserModel()
+    @ObservedObject private var or = GetOrderToUSer()
     
     var body: some View {
         HStack(spacing: 16){
@@ -49,7 +50,9 @@ struct UserNavBar: View {
             }
             Spacer()
             Button{
+         
                 GetOrderToUSer().reload()
+
                 self.updateView.toggle()
                 print("Succes")
             }label: {
@@ -112,7 +115,7 @@ struct UserNavBar: View {
             MainUserView()
         }
         .fullScreenCover(isPresented: $showAdminView){
-            MainUserView()
+            MainPersonView()
         }
         .alert("Ошибка входа. У вас недостаточно прав",isPresented: $alertErrorGoPosition){
             Button("ОК"){

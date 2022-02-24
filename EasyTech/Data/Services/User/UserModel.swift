@@ -13,11 +13,13 @@ import UIKit
 
 class UserModel: ObservableObject{
     
+    @Published var chatUser = [User]()
     @Published var userModel: User?
     @Published var isUserCurrentLogOut = false
     
     init(){
         fetchCurrentUser()
+        fetchAllUser()
         DispatchQueue.main.async {
             self.isUserCurrentLogOut = Auth.auth().currentUser?.uid == nil
         }
@@ -41,8 +43,38 @@ class UserModel: ObservableObject{
                 let permission = data["permission"] as? String ?? ""
                 let imageURL = data["profileImageUrl"] as? String ?? ""
                 
-            self.userModel = User(uid: uid, email: email, name: name, surname: surname, numberPhone: numberPhone, imageUrl: imageURL, permission: permission)
+            self.userModel = User(id: uid, email: email, name: name, surname: surname, numberPhone: numberPhone, imageUrl: imageURL, permission: permission)
             
+        }
+    }
+    
+    private func fetchAllUser(){
+        guard let id = Auth.auth().currentUser?.uid else {return}
+        Firestore.firestore().collection("users").getDocuments{
+            users, error in
+            if error != nil{
+                print("Не удалось загрузить список пользователей")
+                return
+            }
+            users?.documents.forEach({
+                snapshot in
+                let uid = snapshot["uid"] as? String ?? ""
+                let email = snapshot["email"] as? String ?? ""
+                let name = snapshot["name"] as? String ?? ""
+                let surname = snapshot["surname"] as? String ?? ""
+                let numberPhone = snapshot["numberPhone"] as? String ?? ""
+                let permission = snapshot["permission"] as? String ?? ""
+                let imageURL = snapshot["profileImageUrl"] as? String ?? ""
+                
+                if uid != id{
+                    if permission != "4"{
+                    let users = User(id: uid, email: email, name: name, surname: surname, numberPhone: numberPhone, imageUrl: imageURL, permission: permission)
+                    self.chatUser.append(users)
+                    print(users)
+                    }
+                }
+                
+            })
         }
     }
     
@@ -119,6 +151,9 @@ class UserModel: ObservableObject{
              print("Success Update Info User")
          }
         
+    }
+    func reload(){
+        self.fetchCurrentUser()
     }
     
     

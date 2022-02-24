@@ -10,6 +10,7 @@ import SwiftUI
 struct AddOrderView: View {
     
     @ObservedObject var ordersUser = GetOrderToUSer()
+    @ObservedObject private var vm = UserModel()
     @Binding var isVisible: Bool
     @State var showAddOrder = false
     @State var image: UIImage?
@@ -107,7 +108,7 @@ struct AddOrderView: View {
             
             Button{
                 if checkValid(){
-                    AddOrder().imageToStorage(imageOrder: (image ?? UIImage(systemName: "camera.fill"))!, housing: housing, floor: floor, description: description, hall: hall)
+                    AddOrder().imageToStorage(imageOrder: (image ?? UIImage(systemName: "camera.fill"))!, housing: housing, floor: floor, description: description, hall: hall, numberPhone: vm.userModel!.numberPhone)
                     
 //                    ordersUser.reload()
                    

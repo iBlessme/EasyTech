@@ -11,7 +11,7 @@ struct ListOrdersPersonView: View {
     
     @ObservedObject private var vm = GetAllOrders()
     @ObservedObject private var user = UserModel()
-    @StateObject var refreshed = GetAllOrders()
+   
     
     @State var id = ""
     @State var imageOrder = ""
@@ -25,12 +25,14 @@ struct ListOrdersPersonView: View {
     @State var idClient = ""
     @State var idPerson = ""
     @State var userPosition = ""
+    @State var numberPhone = ""
+    
     
     var body: some View {
         NavigationView{
         List{
             ForEach(vm.allOrders){ order in
-                NavigationLink(destination: AboutOrderView(id: $id, imageOrder: $imageOrder, housing: $housing, floor: $floor, description: $description, hall: $hall, status: $status, dateRegistration: $dateRegistration, dateCompleted: $dateCompleted, idClient: $idClient, idPerson: $idPerson, userosition: $userPosition)
+                NavigationLink(destination: AboutOrderView(id: $id, imageOrder: $imageOrder, housing: $housing, floor: $floor, description: $description, hall: $hall, status: $status, dateRegistration: $dateRegistration, dateCompleted: $dateCompleted, idClient: $idClient, idPerson: $idPerson, userosition: $userPosition, phoneNumber: $numberPhone)
                                 .onAppear{
                     self.id = order.id
                     self.imageOrder = order.imageOrder
@@ -44,6 +46,7 @@ struct ListOrdersPersonView: View {
                     self.idClient = order.idClient
                     self.idPerson = order.idPerson
                     self.userPosition = user.userModel?.permission ?? ""
+                    self.numberPhone = order.numberPhone
 
                 }){
                     VStack{

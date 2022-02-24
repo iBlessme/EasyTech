@@ -12,7 +12,7 @@ import FirebaseStorage
 import UIKit
 
 class AddOrder{
-    func imageToStorage(imageOrder: UIImage, housing: String, floor: Int, description: String, hall: String){
+    func imageToStorage(imageOrder: UIImage, housing: String, floor: Int, description: String, hall: String, numberPhone: String){
         
         let ref = Int.random(in: 1..<999999)
         
@@ -33,13 +33,13 @@ class AddOrder{
             refI.downloadURL{
                 url, error in
                 guard let downloadUrl = url else {return}
-                self.storeOrderInfo(imageOrder: downloadUrl, housing: housing, floor: floor, description: description, hall: hall, ref: String(ref))
+                self.storeOrderInfo(imageOrder: downloadUrl, housing: housing, floor: floor, description: description, hall: hall, ref: String(ref), numberPhone: numberPhone)
                 print("Succes download Image")
             }
         }
     }
     
-    func storeOrderInfo(imageOrder: URL, housing: String, floor: Int, description: String, hall: String, ref: String){
+    func storeOrderInfo(imageOrder: URL, housing: String, floor: Int, description: String, hall: String, ref: String, numberPhone: String){
         
         let time = NSDate()
         let formatter = DateFormatter()
@@ -58,7 +58,8 @@ class AddOrder{
             "hall" : hall,
             "status" : "В ожидании сотрудника",
             "dateRegistration": dateNow,
-            "idClient" : uid
+            "idClient" : uid,
+            "numberPhone" : numberPhone
         ]){
             err in
             if err != nil{

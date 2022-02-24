@@ -10,5 +10,5 @@ pod 'Firebase/Storage'
 pod 'SDWebImageSwiftUI'
 pod 'SDWebImage'
   # Pods for EasyTech
-
+pod 'FirebaseFirestoreSwift'
 end
