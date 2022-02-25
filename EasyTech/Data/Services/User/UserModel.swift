@@ -16,7 +16,7 @@ class UserModel: ObservableObject{
     @Published var chatUser = [User]()
     @Published var userModel: User?
     @Published var isUserCurrentLogOut = false
-    
+  
     init(){
         fetchCurrentUser()
         fetchAllUser()
@@ -156,5 +156,5 @@ class UserModel: ObservableObject{
         self.fetchCurrentUser()
     }
     
-    
+   
 }

@@ -12,12 +12,11 @@ import FirebaseFirestore
 
 struct ChatView: View {
     
+    
+    
     @State var chatText = ""
     @Binding var uid: String
     @ObservedObject var ms = MessageViewModel()
-
-    
-    
     
     var body: some View {
         ZStack{
@@ -31,11 +30,13 @@ struct ChatView: View {
     }
     
     private var messageView: some View{
-        
         ScrollView {
             ForEach(ms.message, id: \.self) { messages in
+                if messages.fromID == uid || messages.toId == uid{
+                if messages.toId != Auth.auth().currentUser?.uid{
                        HStack {
                            Spacer()
+                           
                            HStack {
                                Text(messages.text)
                                    .foregroundColor(.white)
@@ -43,15 +44,41 @@ struct ChatView: View {
                            .padding()
                            .background(Color.purple)
                            .cornerRadius(20)
+                           .shadow(color: .black, radius: 2, x: 1, y: 1)
                        }
                        .padding(.horizontal)
                        .padding(.top, 8)
+                       
                    }
-
+                else{
+                    HStack {
+                        
+                        HStack {
+                            Text(messages.text)
+                                .foregroundColor(.black)
+                        }
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(20)
+                        .shadow(color: .black, radius: 2, x: 1, y: 1)
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 8)
+                }
+                    
+                }
+                
+            }
+            
                    HStack{ Spacer() }
                    .frame(height: 50)
                }
+        
+        
+        .padding()
                .background(Color(.init(white: 0.95, alpha: 1)))
+              
     }
     
     private var chatBottomBar: some View {
@@ -69,6 +96,10 @@ struct ChatView: View {
                 Button {
                     MessageViewModel().handleSend(toID: uid, text: chatText)
                     self.chatText = ""
+//                    do {
+//                        MessageViewModel().reload()
+//                    }
+//                    MessageViewModel().reload()
                 } label: {
                     Image(systemName: "paperplane.fill")
                         .foregroundColor(Color.white)
@@ -82,7 +113,7 @@ struct ChatView: View {
             .padding(.vertical, 8)
         }
     
-  
+    
 }
 
 struct ChatView_Previews: PreviewProvider {

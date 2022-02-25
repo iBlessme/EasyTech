@@ -8,26 +8,15 @@
 import SwiftUI
 
 struct Chatdemo: View {
+    
+//    @State var chatText = ""
+//    @Binding var uid: String
+//    @ObservedObject var ms = MessageViewModel()
+    
     var body: some View {
-        List(1..<20, id: \.self){ nim in
-            
-            HStack{
-                Spacer()
-                HStack{
-                    Text("text")
-                        .foregroundColor(Color.white)
-                }
-                .padding()
-                .background(Color.purple)
-                .cornerRadius(20)
-            }
-            .padding(.horizontal)
-            .padding(.top, 8)
-        }
-        .listStyle(.sidebar)
-       
-    }
+       Text("das")
         
+    }
 }
 
 struct Chatdemo_Previews: PreviewProvider {

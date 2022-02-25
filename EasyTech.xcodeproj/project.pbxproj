@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		206ABB5427C8C4B20065F68D /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206ABB5327C8C4B20065F68D /* ChatUser.swift */; };
+		206ABB5727C950A30065F68D /* SwiftUIListSeparator in Frameworks */ = {isa = PBXBuildFile; productRef = 206ABB5627C950A30065F68D /* SwiftUIListSeparator */; };
+		206ABB5A27C955300065F68D /* Refresh in Frameworks */ = {isa = PBXBuildFile; productRef = 206ABB5927C955300065F68D /* Refresh */; };
 		206BED5C27B287CE007E67B8 /* UserNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BED5B27B287CE007E67B8 /* UserNavBar.swift */; };
 		206BED5E27B2921C007E67B8 /* SettingUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BED5D27B2921B007E67B8 /* SettingUserView.swift */; };
 		206BED6127B2931F007E67B8 /* AddOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BED6027B2931F007E67B8 /* AddOrderView.swift */; };
@@ -44,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		206ABB5327C8C4B20065F68D /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
 		206BED5627B25AD6007E67B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		206BED5B27B287CE007E67B8 /* UserNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNavBar.swift; sourceTree = "<group>"; };
 		206BED5D27B2921B007E67B8 /* SettingUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUserView.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 			files = (
 				2094B32227B43EE300B99A6A /* RefreshableScrollView in Frameworks */,
 				AB8C25610586FFE6CA422297 /* Pods_EasyTech.framework in Frameworks */,
+				206ABB5A27C955300065F68D /* Refresh in Frameworks */,
+				206ABB5727C950A30065F68D /* SwiftUIListSeparator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +232,7 @@
 				20C5757327B182EF005BDF2B /* User.swift */,
 				206BED6A27B2AC05007E67B8 /* Order.swift */,
 				20ED05EC27C63F2A00E036FE /* Message.swift */,
+				206ABB5327C8C4B20065F68D /* ChatUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -295,6 +302,8 @@
 			name = EasyTech;
 			packageProductDependencies = (
 				2094B32127B43EE300B99A6A /* RefreshableScrollView */,
+				206ABB5627C950A30065F68D /* SwiftUIListSeparator */,
+				206ABB5927C955300065F68D /* Refresh */,
 			);
 			productName = EasyTech;
 			productReference = 20BE13B327B1230B00B76A9C /* EasyTech.app */;
@@ -326,6 +335,8 @@
 			mainGroup = 20BE13AA27B1230B00B76A9C;
 			packageReferences = (
 				2094B32027B43EE300B99A6A /* XCRemoteSwiftPackageReference "RefreshableScrollView" */,
+				206ABB5527C950A30065F68D /* XCRemoteSwiftPackageReference "SwiftUIListSeparator" */,
+				206ABB5827C9552F0065F68D /* XCRemoteSwiftPackageReference "Refresh" */,
 			);
 			productRefGroup = 20BE13B427B1230B00B76A9C /* Products */;
 			projectDirPath = "";
@@ -420,6 +431,7 @@
 				20BE13B727B1230B00B76A9C /* EasyTechApp.swift in Sources */,
 				20ED05E727C637B800E036FE /* DescriptionPlaceholder.swift in Sources */,
 				20ED05EF27C6524600E036FE /* Chatdemo.swift in Sources */,
+				206ABB5427C8C4B20065F68D /* ChatUser.swift in Sources */,
 				2094B33927B55D1600B99A6A /* GetActiveOrders.swift in Sources */,
 				206BED6127B2931F007E67B8 /* AddOrderView.swift in Sources */,
 				2094B32D27B47DFB00B99A6A /* ListActivOrdersView.swift in Sources */,
@@ -641,6 +653,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		206ABB5527C950A30065F68D /* XCRemoteSwiftPackageReference "SwiftUIListSeparator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SchmidtyApps/SwiftUIListSeparator.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		206ABB5827C9552F0065F68D /* XCRemoteSwiftPackageReference "Refresh" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wxxsw/Refresh";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		2094B32027B43EE300B99A6A /* XCRemoteSwiftPackageReference "RefreshableScrollView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TariqAlmazyad/RefreshableScrollView.git";
@@ -652,6 +680,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		206ABB5627C950A30065F68D /* SwiftUIListSeparator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 206ABB5527C950A30065F68D /* XCRemoteSwiftPackageReference "SwiftUIListSeparator" */;
+			productName = SwiftUIListSeparator;
+		};
+		206ABB5927C955300065F68D /* Refresh */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 206ABB5827C9552F0065F68D /* XCRemoteSwiftPackageReference "Refresh" */;
+			productName = Refresh;
+		};
 		2094B32127B43EE300B99A6A /* RefreshableScrollView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2094B32027B43EE300B99A6A /* XCRemoteSwiftPackageReference "RefreshableScrollView" */;

@@ -14,9 +14,17 @@ class MessageViewModel: ObservableObject{
     
     @Published var chatText = ""
     @Published var message = [Message]()
+    @Published var count = 0
+  
+    
+    init(){
+        self.fetchMessages()
+    }
+    
+   
+    
     
     func handleSend(toID: String, text: String){
-        
         
         let time = NSDate()
         let formatter = DateFormatter()
@@ -25,10 +33,9 @@ class MessageViewModel: ObservableObject{
         let formatteddate = formatter.string(from: time as Date)
         let dateNow = "\(formatteddate)"
         
-        
         guard let uid = Auth.auth().currentUser?.uid else {return}
         
-        let document = Firestore.firestore().collection("users").document(uid).collection("messages").document("messages").collection(toID).document()
+        let document = Firestore.firestore().collection("users").document(uid).collection("messages").document()
         document.setData([
             "fromID" : uid,
             "toID" : toID,
@@ -41,9 +48,10 @@ class MessageViewModel: ObservableObject{
                 return
             }
             print("ссобщение успешно отправлено")
+            self.count += 1
         }
         
-        let forwardDocument = Firestore.firestore().collection("users").document(toID).collection("messages").document("messages").collection(uid).document()
+        let forwardDocument = Firestore.firestore().collection("users").document(toID).collection("messages").document()
         forwardDocument.setData([
             "fromID" : uid,
             "toID" : toID,
@@ -56,20 +64,20 @@ class MessageViewModel: ObservableObject{
             }
             print("Сообщение переадресовано")
         }
+       
         
     }
     
-    func fetchMessages(toID: String){
-        guard let fromID = Auth.auth().currentUser?.uid else {return}
-        Firestore.firestore().collection("users").document(fromID).collection("messages").document("messages")
-            .collection(toID).getDocuments{
-            querySnapshot, err in
-            if err != nil{
-                print("Не удалось загрузить данные")
+    func fetchMessages(){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        Firestore.firestore().collection("users").document(uid).collection("messages").order(by: "timeStamp").addSnapshotListener{
+            snapshots, err in
+            if err != nil {
+                print("Не удалось загрузить изображение")
                 return
             }
-            
-            querySnapshot?.documents.forEach({snapshot in
+            snapshots?.documents.forEach({
+                snapshot in
                 let id = snapshot.documentID
                 let fromId = snapshot.get("fromID") as? String ?? "Не известен отправитель"
                 let toId = snapshot.get("toID") as? String ?? "Не указан получатель"
@@ -79,12 +87,20 @@ class MessageViewModel: ObservableObject{
                 let messageList = Message(id: id, fromID: fromId, text: text, timStamp: timeStamp, toId: toId)
                 
                 self.message.append(messageList)
+//                self.recentMessages = Message(id: id, fromID: fromId, text: text, timStamp: timeStamp, toId: toId)
                 print("Дошел")
                 print(messageList)
                 
             })
+            DispatchQueue.main.async {
+                self.count += 1
+            }
         }
-        
+    }
+    
+    func reload() async{
+        self.message.removeAll()
+        self.fetchMessages()
     }
     
     

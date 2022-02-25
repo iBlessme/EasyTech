@@ -10,9 +10,11 @@ import SDWebImageSwiftUI
 
 struct ChatPersonView: View {
     
-   @ObservedObject var usersChat = UserModel()
+    @ObservedObject var usersChat = UserModel()
+    @ObservedObject var ms = MessageViewModel()
     @State var isShowMessages = false
     @State var userUid = ""
+    @State var chatU: ChatUser?
     
     
     var body: some View {
@@ -21,7 +23,6 @@ struct ChatPersonView: View {
                 Button{
                     self.isShowMessages.toggle()
                     self.userUid = user.id
-                    MessageViewModel().fetchMessages(toID: user.id)
                     print(userUid)
                 }label: {
                     VStack{
@@ -42,13 +43,17 @@ struct ChatPersonView: View {
                                         Text("\(user.email)")
                                             .font(.system(size: 14))
                                             .foregroundColor(Color(.lightGray))
-                                        Text("Message")
-                                            .font(.system(size: 14))
-                                            .foregroundColor(Color(.label))
-                                          }
+                                        
+//                                        if ms.recentMessages?.fromID == user.id || ms.recentMessages?.toId == user.id{
+//                                        Text("")
+//                                                .font(.system(size: 14))
+//                                                .foregroundColor(Color(.label))
+////                                        }
+                                        }
+                                       
                                     Spacer()
-                                        Text("22d")
-                                        .font(.system(size: 14, weight: .semibold))
+//                                        Text("22d")
+//                                        .font(.system(size: 14, weight: .semibold))
                                       }
                                       Divider()
                                           .padding(.vertical, 8)
@@ -63,6 +68,7 @@ struct ChatPersonView: View {
         .background(Color(.init(white: 0, alpha: 0.07)).ignoresSafeArea(.all))
         .sheet(isPresented: $isShowMessages, onDismiss: nil){
             ChatView(uid: self.$userUid)
+//            Chatdemo()
         }
 }
 

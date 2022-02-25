@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+//import SwiftUIListSeparator
 
 struct ListOrdersPersonView: View {
     
@@ -30,6 +31,8 @@ struct ListOrdersPersonView: View {
     
     var body: some View {
         NavigationView{
+            VStack{
+                Text("asdasd")
         List{
             ForEach(vm.allOrders){ order in
                 NavigationLink(destination: AboutOrderView(id: $id, imageOrder: $imageOrder, housing: $housing, floor: $floor, description: $description, hall: $hall, status: $status, dateRegistration: $dateRegistration, dateCompleted: $dateCompleted, idClient: $idClient, idPerson: $idPerson, userosition: $userPosition, phoneNumber: $numberPhone)
@@ -70,11 +73,12 @@ struct ListOrdersPersonView: View {
                     
                     
                 }
+//                .listRowSeparator(.hidden)
+                
                 
                 .padding()
                 
                 
-                    
                 
             }
             
@@ -85,10 +89,13 @@ struct ListOrdersPersonView: View {
                await vm.reload()
             }
         }
+//        .listSeparatorStyle(.none)
         
         .listStyle(.plain)
+        .cornerRadius(20)
         .refreshable {
             print("Success")
+        }
         }
         
         .navigationBarTitleDisplayMode(.inline)
