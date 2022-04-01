@@ -20,7 +20,7 @@ class GetOrderToUSer: ObservableObject{
     
     func fetchOrderToUser(){
         guard let uid = Auth.auth().currentUser?.uid else {return}
-        Firestore.firestore().collection("users").document(uid).collection("orders").getDocuments{querySnapshot, error in
+        Firestore.firestore().collection("users").document(uid).collection("orders").order(by: "dateRegistration").getDocuments{querySnapshot, error in
             if error != nil{
                 print("Failed Load Orders")
                 return
@@ -39,8 +39,10 @@ class GetOrderToUSer: ObservableObject{
                 let idPerson = snapshot.get("idPerson") as? String ?? "Ожидание сотрудника"
                 let imageOrder = snapshot.get("imageOrder") as? String ?? ""
                 let numberPhone = snapshot.get("numberPhone") as? String ?? ""
+                let namePerson = snapshot.get("namePerson") as? String ?? ""
+                let surnamePerson = snapshot.get("surnamePerson") as? String ?? ""
                             
-                let order = Order(id: id, imageOrder: imageOrder, housing: housing, floor: floor, description: description, hall: hall, status: status, dateRegistration: dateRegistration, dateCompleted: dateCompleted, idClient: idClient, idPerson: idPerson, numberPhone: numberPhone)
+                let order = Order(id: id, imageOrder: imageOrder, housing: housing, floor: floor, description: description, hall: hall, status: status, dateRegistration: dateRegistration, dateCompleted: dateCompleted, idClient: idClient, idPerson: idPerson, numberPhone: numberPhone, namePerson: namePerson, surnamePerson: surnamePerson)
                 
                 self.orderList.append(order)
                 print(order)

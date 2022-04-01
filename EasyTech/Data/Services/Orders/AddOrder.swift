@@ -12,8 +12,10 @@ import FirebaseStorage
 import UIKit
 
 class AddOrder{
+    
+    @Published var countOrder = [OrderCount]()
+    
     func imageToStorage(imageOrder: UIImage, housing: String, floor: Int, description: String, hall: String, numberPhone: String){
-        
         let ref = Int.random(in: 1..<999999)
         
 //        let uid = Auth.auth().currentUser?.uid
@@ -59,7 +61,8 @@ class AddOrder{
             "status" : "В ожидании сотрудника",
             "dateRegistration": dateNow,
             "idClient" : uid,
-            "numberPhone" : numberPhone
+            "numberPhone" : numberPhone,
+            
         ]){
             err in
             if err != nil{
@@ -67,9 +70,81 @@ class AddOrder{
                 return
             }else{
                 print("Документ создан")
-            
+//                self.handleOrderinfo(time: dateNow)
+            }
         }
-        
     }
-    }
+    
+//    func handleOrderinfo(time: String){
+//        Firestore.firestore().collection("StatsOrder").getDocuments{
+//            docs, err in
+//            if err != nil{
+//                print("Не удалось получить данные")
+//                return
+//            }
+//            for documents in docs!.documents{
+//                if documents.documentID == time{
+//                    documents.reference.addSnapshotListener{
+//                        snapshot, err in
+//                        if err != nil{
+//                            print("Не удалось подключится к документу")
+//                            return
+//                        }
+//                        guard let data = snapshot?.data() else {return}
+//                        let count = data["count"] as? Int ?? 0
+//                        
+//                        self.udateOrderToStats(time: time, count: count)
+//                        print("Пошло обновление данных")
+//                        
+//                    }
+////                    self.udateOrderToStats(time: time, count: 1)
+//                }else{
+//                    self.setOrderToStats(time: time, count: 0)
+//                    print("Пошло создание данных")
+//                }
+//            }
+//        }
+//    }
+//    
+//    func udateOrderToStats(time: String, count: Int){
+//        let countOrder = count + 1
+//        Firestore.firestore().collection("StatsOrder").document(time).updateData([
+//            "count" : countOrder
+//        ]){err in
+//            if err != nil{
+//                print("Ошибка обноваления анных")
+//                return
+//            }
+//        }
+//        
+//    }
+//    
+//    func setOrderToStats(time: String, count: Int){
+//        let countOrder = count + 1
+//        Firestore.firestore().collection("StatsOrder").document(time)
+//            .setData([
+//                "count" : countOrder
+//            ]){ err in
+//                if err != nil{
+//                    print("Ошибка установки данных")
+//                    return
+//                }
+//            }
+//    }
+    
+//    func fetchOrderToStats(time: String){
+//        Firestore.firestore().collection("ordersOfDay").document(time).addSnapshotListener{snapshotListener, err in
+//            if err != nil{
+//                print("Ошибка")
+//            }
+//            guard let data = snapshotListener?.data() else {return}
+//            let count = data["count"] as? Int ?? 0
+//
+//            let countOrd = OrderCount(count: count)
+//            self.countOrder.append(countOrd)
+//        }
+//    }
+//    func updateorderToCount(time: String){
+//
+//    }
 }

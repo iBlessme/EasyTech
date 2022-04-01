@@ -40,7 +40,8 @@ class MessageViewModel: ObservableObject{
             "fromID" : uid,
             "toID" : toID,
             "text" : text,
-            "timeStamp" : dateNow
+            "timeStamp" : dateNow,
+            "type": "text"
         ]){
             err in
             if err != nil{
@@ -49,6 +50,7 @@ class MessageViewModel: ObservableObject{
             }
             print("ссобщение успешно отправлено")
             self.count += 1
+            print(self.count)
         }
         
         let forwardDocument = Firestore.firestore().collection("users").document(toID).collection("messages").document()
@@ -56,7 +58,8 @@ class MessageViewModel: ObservableObject{
             "fromID" : uid,
             "toID" : toID,
             "text" : text,
-            "timeStamp" : dateNow
+            "timeStamp" : dateNow,
+            "type" : "text"
         ]){err in
             if err != nil{
                 print("Не удалось перенаправить сообщение")
@@ -83,17 +86,19 @@ class MessageViewModel: ObservableObject{
                 let toId = snapshot.get("toID") as? String ?? "Не указан получатель"
                 let text = snapshot.get("text") as? String ?? "Сообщение отсутствует"
                 let timeStamp = snapshot.get("timeStamp") as? String ?? "Дата неизвестна"
+                let type = snapshot.get("type") as? String ?? "Формат не известен"
                 
-                let messageList = Message(id: id, fromID: fromId, text: text, timStamp: timeStamp, toId: toId)
+                let messageList = Message(id: id, fromID: fromId, text: text, timStamp: timeStamp, toId: toId, type: type)
                 
                 self.message.append(messageList)
-//                self.recentMessages = Message(id: id, fromID: fromId, text: text, timStamp: timeStamp, toId: toId)
                 print("Дошел")
                 print(messageList)
                 
             })
             DispatchQueue.main.async {
                 self.count += 1
+                print("second")
+                print(self.count)
             }
         }
     }

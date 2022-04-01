@@ -10,7 +10,7 @@ import SwiftUI
 struct DescriptionPlaceholder: View {
     var body: some View {
         HStack {
-            Text("Описание")
+            Text("Сообщение")
                 .foregroundColor(Color(.gray))
                 .font(.system(size: 17))
                 .padding(.leading, 5)

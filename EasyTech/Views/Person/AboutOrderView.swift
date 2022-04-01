@@ -11,6 +11,7 @@ import SDWebImageSwiftUI
 
 struct AboutOrderView: View {
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @Binding var id: String
     @Binding var imageOrder: String
@@ -25,6 +26,8 @@ struct AboutOrderView: View {
     @Binding var idPerson: String
     @Binding var userosition: String
     @Binding var phoneNumber: String
+    @Binding var namePerson: String
+    @Binding var surnamePerson: String
   
     @State var isSuccesToJob = false
     @State var isShowAlrtToErrorJob = false
@@ -82,7 +85,6 @@ struct AboutOrderView: View {
                             }
                            
                         }
-//                        .foregroundColor(Color.w)
                         .shadow(radius: 10)
                         .font(Font.system(size: 15, weight: .bold))
                         .padding(3)
@@ -92,6 +94,7 @@ struct AboutOrderView: View {
                         if idPerson == Auth.auth().currentUser?.uid{
                             
                             Button{
+                                presentationMode.wrappedValue.dismiss()
                                 print("Clouse order")
                                 self.checkPosition()
                                 if self.isSuccesToJob{
@@ -120,10 +123,11 @@ struct AboutOrderView: View {
                         }
                         else{
                         Button{
+                            presentationMode.wrappedValue.dismiss()
                             print("Succes")
                             self.checkPosition()
                             if self.isSuccesToJob{
-                                GetOrderToPerson().getOrderToPerson(id: id)
+                                GetOrderToPerson().getOrderToPerson(id: id, namePerson: namePerson, surnamePerson: surnamePerson)
                             }
                             else{
                                 self.isShowAlrtToErrorJob.toggle()
@@ -181,10 +185,6 @@ struct AboutOrderView: View {
                         .shadow(radius: 5)
                 }
             }
-        
-//        if let url = URL(string: "tel://\(numberPh)") {
-//                     UIApplication.shared.openURL(url)
-//                 }
     }
         func checkPosition(){
             if userosition == "3"{
@@ -206,7 +206,7 @@ struct AboutOrderView: View {
 
 struct AboutOrderView_Previews: PreviewProvider {
     static var previews: some View {
-        AboutOrderView(id: .constant(""), imageOrder: .constant(""), housing: .constant(""), floor: .constant(""), description: .constant(""), hall: .constant(""), status: .constant(""), dateRegistration: .constant(""), dateCompleted: .constant(""), idClient: .constant(""), idPerson: .constant(""), userosition: .constant(""), phoneNumber: .constant(""))
+        AboutOrderView(id: .constant(""), imageOrder: .constant(""), housing: .constant(""), floor: .constant(""), description: .constant(""), hall: .constant(""), status: .constant(""), dateRegistration: .constant(""), dateCompleted: .constant(""), idClient: .constant(""), idPerson: .constant(""), userosition: .constant(""), phoneNumber: .constant(""), namePerson: .constant(""), surnamePerson: .constant(""))
     }
     
 }

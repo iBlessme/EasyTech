@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		206A9A0A27D4CD3600507CD2 /* ShowStaticOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A9A0927D4CD3600507CD2 /* ShowStaticOfDay.swift */; };
+		206A9A0C27D4CD9800507CD2 /* ShowStaticPersonOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A9A0B27D4CD9800507CD2 /* ShowStaticPersonOfDay.swift */; };
+		206A9A0E27D4D70700507CD2 /* OrderCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A9A0D27D4D70700507CD2 /* OrderCount.swift */; };
 		206ABB5427C8C4B20065F68D /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206ABB5327C8C4B20065F68D /* ChatUser.swift */; };
 		206ABB5727C950A30065F68D /* SwiftUIListSeparator in Frameworks */ = {isa = PBXBuildFile; productRef = 206ABB5627C950A30065F68D /* SwiftUIListSeparator */; };
 		206ABB5A27C955300065F68D /* Refresh in Frameworks */ = {isa = PBXBuildFile; productRef = 206ABB5927C955300065F68D /* Refresh */; };
@@ -28,6 +31,12 @@
 		2094B33527B48EB900B99A6A /* AboutOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2094B33427B48EB900B99A6A /* AboutOrderView.swift */; };
 		2094B33727B5299D00B99A6A /* GetOrderToPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2094B33627B5299D00B99A6A /* GetOrderToPerson.swift */; };
 		2094B33927B55D1600B99A6A /* GetActiveOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2094B33827B55D1500B99A6A /* GetActiveOrders.swift */; };
+		209C509D27CFF3FC0006C8A5 /* AppointPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209C509C27CFF3FC0006C8A5 /* AppointPerson.swift */; };
+		209C50A027D0BCBF0006C8A5 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 209C509F27D0BCBF0006C8A5 /* Charts */; };
+		20BB7E8027CF9DC800FAB5C7 /* MainAdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB7E7F27CF9DC800FAB5C7 /* MainAdminView.swift */; };
+		20BB7E8227CF9E3600FAB5C7 /* AllOrdersAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB7E8127CF9E3600FAB5C7 /* AllOrdersAdmin.swift */; };
+		20BB7E8427CF9E5D00FAB5C7 /* StatisticsAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB7E8327CF9E5D00FAB5C7 /* StatisticsAdmin.swift */; };
+		20BB7E8827CFA81C00FAB5C7 /* AboutOrderAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB7E8727CFA81C00FAB5C7 /* AboutOrderAdmin.swift */; };
 		20BE13B727B1230B00B76A9C /* EasyTechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BE13B627B1230B00B76A9C /* EasyTechApp.swift */; };
 		20BE13B927B1230B00B76A9C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BE13B827B1230B00B76A9C /* ContentView.swift */; };
 		20BE13BB27B1230E00B76A9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BE13BA27B1230E00B76A9C /* Assets.xcassets */; };
@@ -42,11 +51,13 @@
 		20ED05E727C637B800E036FE /* DescriptionPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED05E627C637B800E036FE /* DescriptionPlaceholder.swift */; };
 		20ED05EB27C6398000E036FE /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED05EA27C6398000E036FE /* MessageViewModel.swift */; };
 		20ED05ED27C63F2A00E036FE /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED05EC27C63F2A00E036FE /* Message.swift */; };
-		20ED05EF27C6524600E036FE /* Chatdemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED05EE27C6524600E036FE /* Chatdemo.swift */; };
 		AB8C25610586FFE6CA422297 /* Pods_EasyTech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D7E2EA7C1169C1C396308E /* Pods_EasyTech.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		206A9A0927D4CD3600507CD2 /* ShowStaticOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStaticOfDay.swift; sourceTree = "<group>"; };
+		206A9A0B27D4CD9800507CD2 /* ShowStaticPersonOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStaticPersonOfDay.swift; sourceTree = "<group>"; };
+		206A9A0D27D4D70700507CD2 /* OrderCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCount.swift; sourceTree = "<group>"; };
 		206ABB5327C8C4B20065F68D /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
 		206BED5627B25AD6007E67B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		206BED5B27B287CE007E67B8 /* UserNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNavBar.swift; sourceTree = "<group>"; };
@@ -66,6 +77,11 @@
 		2094B33427B48EB900B99A6A /* AboutOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutOrderView.swift; sourceTree = "<group>"; };
 		2094B33627B5299D00B99A6A /* GetOrderToPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrderToPerson.swift; sourceTree = "<group>"; };
 		2094B33827B55D1500B99A6A /* GetActiveOrders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetActiveOrders.swift; sourceTree = "<group>"; };
+		209C509C27CFF3FC0006C8A5 /* AppointPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointPerson.swift; sourceTree = "<group>"; };
+		20BB7E7F27CF9DC800FAB5C7 /* MainAdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAdminView.swift; sourceTree = "<group>"; };
+		20BB7E8127CF9E3600FAB5C7 /* AllOrdersAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllOrdersAdmin.swift; sourceTree = "<group>"; };
+		20BB7E8327CF9E5D00FAB5C7 /* StatisticsAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsAdmin.swift; sourceTree = "<group>"; };
+		20BB7E8727CFA81C00FAB5C7 /* AboutOrderAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutOrderAdmin.swift; sourceTree = "<group>"; };
 		20BE13B327B1230B00B76A9C /* EasyTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BE13B627B1230B00B76A9C /* EasyTechApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTechApp.swift; sourceTree = "<group>"; };
 		20BE13B827B1230B00B76A9C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,7 +97,6 @@
 		20ED05E627C637B800E036FE /* DescriptionPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionPlaceholder.swift; sourceTree = "<group>"; };
 		20ED05EA27C6398000E036FE /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		20ED05EC27C63F2A00E036FE /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		20ED05EE27C6524600E036FE /* Chatdemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chatdemo.swift; sourceTree = "<group>"; };
 		AFF4206DEE2BE30176A88D5A /* Pods-EasyTech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyTech.release.xcconfig"; path = "Target Support Files/Pods-EasyTech/Pods-EasyTech.release.xcconfig"; sourceTree = "<group>"; };
 		B0D7E2EA7C1169C1C396308E /* Pods_EasyTech.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyTech.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BCACF55326CBC349D5F09E /* Pods-EasyTech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyTech.debug.xcconfig"; path = "Target Support Files/Pods-EasyTech/Pods-EasyTech.debug.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				209C50A027D0BCBF0006C8A5 /* Charts in Frameworks */,
 				2094B32227B43EE300B99A6A /* RefreshableScrollView in Frameworks */,
 				AB8C25610586FFE6CA422297 /* Pods_EasyTech.framework in Frameworks */,
 				206ABB5A27C955300065F68D /* Refresh in Frameworks */,
@@ -161,9 +177,29 @@
 			children = (
 				20ED05E427C6325300E036FE /* ChatView.swift */,
 				20ED05E627C637B800E036FE /* DescriptionPlaceholder.swift */,
-				20ED05EE27C6524600E036FE /* Chatdemo.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		209C50A127D0BD5D0006C8A5 /* Statistic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Statistic;
+			sourceTree = "<group>";
+		};
+		20BB7E7E27CF9D9400FAB5C7 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				20BB7E7F27CF9DC800FAB5C7 /* MainAdminView.swift */,
+				20BB7E8127CF9E3600FAB5C7 /* AllOrdersAdmin.swift */,
+				20BB7E8327CF9E5D00FAB5C7 /* StatisticsAdmin.swift */,
+				20BB7E8727CFA81C00FAB5C7 /* AboutOrderAdmin.swift */,
+				209C509C27CFF3FC0006C8A5 /* AppointPerson.swift */,
+				206A9A0927D4CD3600507CD2 /* ShowStaticOfDay.swift */,
+				206A9A0B27D4CD9800507CD2 /* ShowStaticPersonOfDay.swift */,
+			);
+			path = Admin;
 			sourceTree = "<group>";
 		};
 		20BE13AA27B1230B00B76A9C = {
@@ -209,6 +245,7 @@
 		20BE13C727B1352A00B76A9C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				20BB7E7E27CF9D9400FAB5C7 /* Admin */,
 				2094B33C27B56B5000B99A6A /* Chat */,
 				206BED5F27B29302007E67B8 /* Common */,
 				20C5757A27B18F0A005BDF2B /* Person */,
@@ -233,6 +270,7 @@
 				206BED6A27B2AC05007E67B8 /* Order.swift */,
 				20ED05EC27C63F2A00E036FE /* Message.swift */,
 				206ABB5327C8C4B20065F68D /* ChatUser.swift */,
+				206A9A0D27D4D70700507CD2 /* OrderCount.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -240,6 +278,7 @@
 		20C5757227B182AC005BDF2B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				209C50A127D0BD5D0006C8A5 /* Statistic */,
 				206624FB27BD580C00783F3A /* Chat */,
 				2094B32727B47CCE00B99A6A /* Other */,
 				2094B32627B4666200B99A6A /* User */,
@@ -263,8 +302,8 @@
 		20C5757A27B18F0A005BDF2B /* Person */ = {
 			isa = PBXGroup;
 			children = (
-				20C5757B27B18F19005BDF2B /* MainPersonView.swift */,
 				2094B32827B47DCF00B99A6A /* ChatPersonView.swift */,
+				20C5757B27B18F19005BDF2B /* MainPersonView.swift */,
 				2094B32A27B47DE700B99A6A /* ListOrdersPersonView.swift */,
 				2094B32C27B47DFB00B99A6A /* ListActivOrdersView.swift */,
 				2094B32E27B480C200B99A6A /* PersonNavBarView.swift */,
@@ -304,6 +343,7 @@
 				2094B32127B43EE300B99A6A /* RefreshableScrollView */,
 				206ABB5627C950A30065F68D /* SwiftUIListSeparator */,
 				206ABB5927C955300065F68D /* Refresh */,
+				209C509F27D0BCBF0006C8A5 /* Charts */,
 			);
 			productName = EasyTech;
 			productReference = 20BE13B327B1230B00B76A9C /* EasyTech.app */;
@@ -337,6 +377,7 @@
 				2094B32027B43EE300B99A6A /* XCRemoteSwiftPackageReference "RefreshableScrollView" */,
 				206ABB5527C950A30065F68D /* XCRemoteSwiftPackageReference "SwiftUIListSeparator" */,
 				206ABB5827C9552F0065F68D /* XCRemoteSwiftPackageReference "Refresh" */,
+				209C509E27D0BCBF0006C8A5 /* XCRemoteSwiftPackageReference "swiftui-charts" */,
 			);
 			productRefGroup = 20BE13B427B1230B00B76A9C /* Products */;
 			projectDirPath = "";
@@ -411,11 +452,18 @@
 				20C5756F27B181BC005BDF2B /* MainUserView.swift in Sources */,
 				2094B32927B47DCF00B99A6A /* ChatPersonView.swift in Sources */,
 				206BED6327B29395007E67B8 /* MessageOrderView.swift in Sources */,
+				20BB7E8427CF9E5D00FAB5C7 /* StatisticsAdmin.swift in Sources */,
+				206A9A0A27D4CD3600507CD2 /* ShowStaticOfDay.swift in Sources */,
+				206A9A0E27D4D70700507CD2 /* OrderCount.swift in Sources */,
 				206BED6B27B2AC05007E67B8 /* Order.swift in Sources */,
 				2094B32B27B47DE700B99A6A /* ListOrdersPersonView.swift in Sources */,
 				20ED05E527C6325300E036FE /* ChatView.swift in Sources */,
+				206A9A0C27D4CD9800507CD2 /* ShowStaticPersonOfDay.swift in Sources */,
+				20BB7E8027CF9DC800FAB5C7 /* MainAdminView.swift in Sources */,
+				20BB7E8227CF9E3600FAB5C7 /* AllOrdersAdmin.swift in Sources */,
 				20C5757627B183BF005BDF2B /* UserModel.swift in Sources */,
 				20C5757C27B18F19005BDF2B /* MainPersonView.swift in Sources */,
+				209C509D27CFF3FC0006C8A5 /* AppointPerson.swift in Sources */,
 				20BE13C627B1350800B76A9C /* ImagePicker.swift in Sources */,
 				2094B33527B48EB900B99A6A /* AboutOrderView.swift in Sources */,
 				206BED6927B2ABEE007E67B8 /* AddOrder.swift in Sources */,
@@ -430,10 +478,10 @@
 				20ED05EB27C6398000E036FE /* MessageViewModel.swift in Sources */,
 				20BE13B727B1230B00B76A9C /* EasyTechApp.swift in Sources */,
 				20ED05E727C637B800E036FE /* DescriptionPlaceholder.swift in Sources */,
-				20ED05EF27C6524600E036FE /* Chatdemo.swift in Sources */,
 				206ABB5427C8C4B20065F68D /* ChatUser.swift in Sources */,
 				2094B33927B55D1600B99A6A /* GetActiveOrders.swift in Sources */,
 				206BED6127B2931F007E67B8 /* AddOrderView.swift in Sources */,
+				20BB7E8827CFA81C00FAB5C7 /* AboutOrderAdmin.swift in Sources */,
 				2094B32D27B47DFB00B99A6A /* ListActivOrdersView.swift in Sources */,
 				206BED5C27B287CE007E67B8 /* UserNavBar.swift in Sources */,
 				20C5757427B182EF005BDF2B /* User.swift in Sources */,
@@ -677,6 +725,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		209C509E27D0BCBF0006C8A5 /* XCRemoteSwiftPackageReference "swiftui-charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/spacenation/swiftui-charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -694,6 +750,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2094B32027B43EE300B99A6A /* XCRemoteSwiftPackageReference "RefreshableScrollView" */;
 			productName = RefreshableScrollView;
+		};
+		209C509F27D0BCBF0006C8A5 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 209C509E27D0BCBF0006C8A5 /* XCRemoteSwiftPackageReference "swiftui-charts" */;
+			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -14,7 +14,7 @@ struct ChatPersonView: View {
     @ObservedObject var ms = MessageViewModel()
     @State var isShowMessages = false
     @State var userUid = ""
-    @State var chatU: ChatUser?
+
     
     
     var body: some View {
@@ -43,17 +43,10 @@ struct ChatPersonView: View {
                                         Text("\(user.email)")
                                             .font(.system(size: 14))
                                             .foregroundColor(Color(.lightGray))
-                                        
-//                                        if ms.recentMessages?.fromID == user.id || ms.recentMessages?.toId == user.id{
-//                                        Text("")
-//                                                .font(.system(size: 14))
-//                                                .foregroundColor(Color(.label))
-////                                        }
+                                    
                                         }
                                        
                                     Spacer()
-//                                        Text("22d")
-//                                        .font(.system(size: 14, weight: .semibold))
                                       }
                                       Divider()
                                           .padding(.vertical, 8)
@@ -68,7 +61,6 @@ struct ChatPersonView: View {
         .background(Color(.init(white: 0, alpha: 0.07)).ignoresSafeArea(.all))
         .sheet(isPresented: $isShowMessages, onDismiss: nil){
             ChatView(uid: self.$userUid)
-//            Chatdemo()
         }
 }
 

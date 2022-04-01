@@ -13,6 +13,11 @@ import FirebaseFirestore
 class GetAllOrders: ObservableObject{
     
     @Published var allOrders = [Order]()
+    @Published var count = 0
+    @Published var countWaitPerson = 0
+    @Published var countInWork = 0
+    @Published var countCompleted = 0
+    @Published var chartAllTime = []
     init(){
         fetchAllOrder()
     }
@@ -25,7 +30,7 @@ class GetAllOrders: ObservableObject{
                 return
                 }
             for document in users!.documents{
-                document.reference.collection("orders").getDocuments{
+                document.reference.collection("orders").order(by: "dateRegistration").getDocuments{
                     snapshots, err in
                     if err != nil{
                         print("Fatal")
@@ -44,10 +49,25 @@ class GetAllOrders: ObservableObject{
                                     let idPerson = snapshot.get("idPerson") as? String ?? "Ожидание сотрудника"
                                     let imageOrder = snapshot.get("imageOrder") as? String ?? ""
                                     let numberPhone = snapshot.get("numberPhone") as? String ?? ""
+                        let namePerson = snapshot.get("namePerson") as? String ?? ""
+                        let surnamePerson = snapshot.get("surnamePerson") as? String ?? ""
                     
-                                    let order = Order(id: id, imageOrder: imageOrder, housing: housing, floor: floor, description: description, hall: hall, status: status, dateRegistration: dateRegistration, dateCompleted: dateCompleted, idClient: idClient, idPerson: idPerson, numberPhone: numberPhone)
+                                    let order = Order(id: id, imageOrder: imageOrder, housing: housing, floor: floor, description: description, hall: hall, status: status, dateRegistration: dateRegistration, dateCompleted: dateCompleted, idClient: idClient, idPerson: idPerson, numberPhone: numberPhone, namePerson: namePerson, surnamePerson: surnamePerson)
                                     self.allOrders.append(order)
                                     print(order)
+                        DispatchQueue.main.async {
+                            self.count += 1
+                            if status == "В ожидании сотрудника"{
+                                self.countWaitPerson += 1
+                            }
+                            else if status == "В работе"{
+                                self.countInWork += 1
+                            }
+                            else{
+                                self.countCompleted += 1
+                            }
+                        }
+//                        self.count += 1
                     })
                     
                 }

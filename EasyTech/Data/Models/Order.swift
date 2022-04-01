@@ -20,4 +20,6 @@ struct Order: Identifiable{
     let idClient: String
     let idPerson: String
     let numberPhone: String
+    let namePerson: String
+    let surnamePerson: String
 }

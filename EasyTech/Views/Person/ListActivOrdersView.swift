@@ -25,55 +25,111 @@ struct ListActivOrdersView: View {
     @State var idPerson = ""
     @State var userPosition = ""
     @State var numberPhone = ""
+    @State var isComplete = false
+    @State var namePerson = ""
+    @State var surnamePerson = ""
     
     var body: some View {
         NavigationView{
+            VStack{
+                Picker(selection: $isComplete, label: Text("Статус")){
+                    Text("Активные")
+                        .tag(false)
+                    Text("Закрытые")
+                        .tag(true)
+                }
+                .pickerStyle(.segmented)
             List{
                 ForEach(vm.activeOrders){ order in
-                    NavigationLink(destination: AboutOrderView(id: $id, imageOrder: $imageOrder, housing: $housing, floor: $floor, description: $description, hall: $hall, status: $status, dateRegistration: $dateRegistration, dateCompleted: $dateCompleted, idClient: $idClient, idPerson: $idPerson, userosition: $userPosition, phoneNumber: $numberPhone)
-                                    .onAppear{
-                        self.id = order.id
-                        self.imageOrder = order.imageOrder
-                        self.housing = order.housing
-                        self.floor = order.floor
-                        self.description = order.description
-                        self.hall = order.hall
-                        self.status = order.status
-                        self.dateRegistration = order.dateRegistration
-                        self.dateCompleted = order.dateCompleted
-                        self.idClient = order.idClient
-                        self.idPerson = order.idPerson
-                        self.userPosition = user.userModel?.permission ?? ""
-                        self.numberPhone = order.numberPhone
+                    if order.status == "Завершен" && isComplete == true{
+                        NavigationLink(destination: AboutOrderView(id: $id, imageOrder: $imageOrder, housing: $housing, floor: $floor, description: $description, hall: $hall, status: $status, dateRegistration: $dateRegistration, dateCompleted: $dateCompleted, idClient: $idClient, idPerson: $idPerson, userosition: $userPosition, phoneNumber: $numberPhone, namePerson: $namePerson, surnamePerson: $surnamePerson)
+                                        .onAppear{
+                            self.id = order.id
+                            self.imageOrder = order.imageOrder
+                            self.housing = order.housing
+                            self.floor = order.floor
+                            self.description = order.description
+                            self.hall = order.hall
+                            self.status = order.status
+                            self.dateRegistration = order.dateRegistration
+                            self.dateCompleted = order.dateCompleted
+                            self.idClient = order.idClient
+                            self.idPerson = order.idPerson
+                            self.userPosition = user.userModel?.permission ?? ""
+                            self.numberPhone = order.numberPhone
+                            self.namePerson = order.namePerson
+                            self.surnamePerson = order.surnamePerson
 
-                    }){
-                        VStack{
-                        HStack{
-                            
-                            Text("Корпус: \(order.housing)")
-                            Spacer()
-                            Text("Кабинет: \(order.hall)")
-                        
-                            
-                        }
-                        .font(Font.system(size: 15, weight: .bold))
-                        .shadow(radius: 10)
+                        }){
+                            VStack{
                             HStack{
-                                Text("Статус: \(order.status)")
-                                    .font(Font.system(size: 20, weight: .bold))
+                                
+                                Text("Корпус: \(order.housing)")
                                 Spacer()
+                                Text("Кабинет: \(order.hall)")
+                            
+                                
                             }
-                            .padding(.vertical, 3)
+                            .font(Font.system(size: 15, weight: .bold))
+                            .shadow(radius: 10)
+                                HStack{
+                                    Text("Статус: \(order.status)")
+                                        .font(Font.system(size: 20, weight: .bold))
+                                    Spacer()
+                                }
+                                .padding(.vertical, 3)
+                            }
+                            
+                            
                         }
                         
+                        .padding()
+                    }else if order.status != "Завершен" && isComplete == false{
+                        NavigationLink(destination: AboutOrderView(id: $id, imageOrder: $imageOrder, housing: $housing, floor: $floor, description: $description, hall: $hall, status: $status, dateRegistration: $dateRegistration, dateCompleted: $dateCompleted, idClient: $idClient, idPerson: $idPerson, userosition: $userPosition, phoneNumber: $numberPhone, namePerson: $namePerson, surnamePerson: $surnamePerson)
+                                        .onAppear{
+                            self.id = order.id
+                            self.imageOrder = order.imageOrder
+                            self.housing = order.housing
+                            self.floor = order.floor
+                            self.description = order.description
+                            self.hall = order.hall
+                            self.status = order.status
+                            self.dateRegistration = order.dateRegistration
+                            self.dateCompleted = order.dateCompleted
+                            self.idClient = order.idClient
+                            self.idPerson = order.idPerson
+                            self.userPosition = user.userModel?.permission ?? ""
+                            self.numberPhone = order.numberPhone
+                            self.namePerson = order.namePerson
+                            self.surnamePerson = order.surnamePerson
+
+                        }){
+                            VStack{
+                            HStack{
+                                
+                                Text("Корпус: \(order.housing)")
+                                Spacer()
+                                Text("Кабинет: \(order.hall)")
+                            
+                                
+                            }
+                            .font(Font.system(size: 15, weight: .bold))
+                            .shadow(radius: 10)
+                                HStack{
+                                    Text("Статус: \(order.status)")
+                                        .font(Font.system(size: 20, weight: .bold))
+                                    Spacer()
+                                }
+                                .padding(.vertical, 3)
+                            }
+                            
+                            
+                        }
+                        
+                        .padding()
+                    }else{
                         
                     }
-                    
-                    .padding()
-                    
-                    
-                        
-                    
                 }
                 
                 }
@@ -88,6 +144,7 @@ struct ListActivOrdersView: View {
             .refreshable {
                 print("Success")
             }
+        }
             
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Активные заказы")

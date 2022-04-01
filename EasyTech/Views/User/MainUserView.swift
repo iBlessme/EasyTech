@@ -16,8 +16,8 @@ struct MainUserView: View {
     var body: some View {
         NavigationView{
         VStack {
+            
             UserNavBar()
-//            Divider()
             OrdersUserView()
             
         }

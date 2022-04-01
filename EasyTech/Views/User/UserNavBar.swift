@@ -115,7 +115,7 @@ struct UserNavBar: View {
             MainUserView()
         }
         .fullScreenCover(isPresented: $showAdminView){
-            MainPersonView()
+            MainAdminView()
         }
         .alert("Ошибка входа. У вас недостаточно прав",isPresented: $alertErrorGoPosition){
             Button("ОК"){
